@@ -9,6 +9,8 @@ const HomePage =()=> {
     return (
         <div>
             <h1>HOME PAGE</h1>
+
+            
         <button onClick={()=> goToLoginPage(navigate)}>Login</button>
         <button onClick={()=> goToCartPage(navigate)}>Carrinho</button>
         </div>
