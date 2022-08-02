@@ -3,6 +3,8 @@ import { LoginStyled } from "./LoginStyles"
 import useForm from "../../hooks/useForm"
 import { login } from "../../services/users"
 import { useNavigate } from "react-router-dom";
+import { Button } from '@chakra-ui/react'
+
 
 const LoginForm = () => {
 
@@ -35,7 +37,7 @@ const LoginForm = () => {
                     onChange={onChange}
                     required
                 />
-                <button>Entrar</button>
+                <Button colorScheme='teal' variant='solid' >Entrar</Button>
             </form>
         </LoginStyled>
 
