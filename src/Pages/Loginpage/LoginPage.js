@@ -1,14 +1,17 @@
 import React from "react";
-import { goToHomePage } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
-
+import LoginForm from "./LoginForm";
+import { goToSignUpPage } from "../../Routes/Coordinator"
 function LoginPage() {
   const navigate = useNavigate();
 
   return (
     <div>
-      <h1>PÁGINA DE LOGIN</h1>
-      <button onClick={() => goToHomePage(navigate)}>Voltar</button>
+      <LoginForm />
+      {/* <button
+        onClick={() => goToSignUpPage(navigate)}
+      >Não possui conta? Cadastre-se
+      </button> */}
     </div>
   );
 }
