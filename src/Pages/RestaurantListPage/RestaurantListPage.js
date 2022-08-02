@@ -1,15 +1,15 @@
 import React from "react";
 import { goToLastPage } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
 function RestaurantListPage() {
   const navigate = useNavigate();
 
-//   const restaurantList=()=>{
-//     axios.get`https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants
-//     `
-//   }
+  const restaurantList=()=>{
+    axios.get`https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants
+    `
+  }
 
   return (
     <div>
