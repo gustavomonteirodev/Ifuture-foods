@@ -20,7 +20,7 @@ export const goToLoginPage = (navigate) => {
     navigate("/carrinho");
   };
   export const goToProfilePage = (navigate) => {
-    navigate("/perfil");
+    navigate("/myProfile");
   };
   
   export const goToLastPage = (navigate) => {

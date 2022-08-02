@@ -11,8 +11,11 @@ const HomePage =()=> {
     return (
         <div>
             <h1>HOME PAGE</h1>
+
+
         <Button colorScheme='teal' variant='solid' onClick={()=> goToLoginPage(navigate)}>Login</Button>
         <Button  colorScheme='teal' variant='outline' onClick={()=> goToCartPage(navigate)}>Carrinho</Button>
+
         </div>
     )
 }
