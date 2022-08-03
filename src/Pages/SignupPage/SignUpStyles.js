@@ -1,33 +1,32 @@
 import styled from "styled-components";
 
-
-export const LoginStyled = styled.div`
-    margin-bottom: 30px; 
+export const SignUpStyled = styled.div`
     box-sizing: border-box;
     display: flex; 
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    font-family: 'DM Sans', sans-serif;
     
+
+
     h1 {
         font-size: 45px; 
         margin-bottom: -10px;
         align-items: center;
         color: #FF4500;
     }
-
    h3 {
     font-weight: lighter; 
     align-items: center;
     font-size: 22px; 
    }
-
    p {
         box-sizing: border-box;
-        font-size: 11px;
-        width: 22%; 
+        font-size: 12px;
+        width: 30%; 
         color: #B8B8B8;
-        margin-bottom: -49px; 
+        margin-bottom: -19px; 
         margin-left: 15px; 
         padding-left: 10px; 
         position: relative; 
@@ -41,7 +40,7 @@ export const LoginStyled = styled.div`
         height: 50px;
         border-radius: 5px;
         border: 1px solid #B8B8B8; 
-        margin-top: 40px; 
+        margin-top: 10px; 
         padding-left: 10px; 
         ::placeholder {
             font-size: 13px; 
@@ -55,7 +54,6 @@ export const LoginStyled = styled.div`
 
     button {
         margin-top: 20px; 
-        margin-bottom: 30px; 
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -67,6 +65,7 @@ export const LoginStyled = styled.div`
         border-radius: 5px; 
         background-color: #E8222E; 
         color: white; 
+        font-family: 'DM Sans', sans-serif;
         font-size: 15px; 
         &:active {
             background-color: red; 
@@ -75,21 +74,22 @@ export const LoginStyled = styled.div`
       
 `
 
-export const PageContainer = styled.div`
-
-margin-top: 10%; 
+export const SignUpContainer = styled.div`
+   display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10%; 
 
     img {
      width: 6.5rem;
     height: 3.625rem;
     object-fit: contain;
-    margin-bottom: 5%; 
     }
 
     h3 {
         font-size: 1rem; 
         padding-top: 10px; 
-        padding-bottom: 10px; 
         font-weight:500;
     }
 
