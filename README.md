@@ -1,3 +1,8 @@
 ### Projeto LabeFood
 
 grupo 3: fourFoodA
+
+
+Login: lucas12@gmail.com
+Senha: login123
+Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpMaXVoWkFycmtNSzZqSEZpbW04IiwibmFtZSI6Ikx1Y2FzIEFsdmVzIiwiZW1haWwiOiJsdWNhczEyQGdtYWlsLmNvbSIsImNwZiI6IjEyMzQ1Njk4MDAwIiwiaGFzQWRkcmVzcyI6dHJ1ZSwiYWRkcmVzcyI6IlJ1YSAxLCAxNSwgQXB0IDA1IC0gRmFyb2wiLCJpYXQiOjE2NTk1NDgyMTB9.YnoAlLnHV3rXzmH5E4tlhUEX8P7GBXb-qnQUonvuRDU
