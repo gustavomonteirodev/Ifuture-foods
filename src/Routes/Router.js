@@ -5,6 +5,7 @@ import SignUpPage from "../Pages/SignupPage/SignUpPage";
 import CartPage from "../Pages/CartPage/CartPage";
 import HomePage from "../Pages/Homepage/HomePage";
 import MyProfilePage from "../Pages/MyProfilePage/MyProfilePage";
+import ProfileEditPage  from "../Pages/ProfileEditPage/ProfileEditPage";
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
         <Route path="/carrinho" element={<CartPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/myProfile" element={<MyProfilePage/>}/>
+        <Route path="/profileEditPage" element={<ProfileEditPage/>}/>
       </Routes>
     </BrowserRouter>
   );

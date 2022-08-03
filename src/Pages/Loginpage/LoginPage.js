@@ -1,9 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
-import { goToSignUpPage } from "../../Routes/Coordinator"
+// import { goToSignUpPage } from "../../Routes/Coordinator"
 function LoginPage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div>
