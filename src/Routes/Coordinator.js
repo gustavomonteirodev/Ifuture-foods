@@ -6,6 +6,10 @@ export const goToLoginPage = (navigate) => {
     navigate("/SignUp");
   };
   
+  export const goToSignAddress = (navigate) => {
+    navigate("/cadastrarendereco")
+}
+
   export const goToHomePage = (navigate) => {
     navigate("/");
   };
