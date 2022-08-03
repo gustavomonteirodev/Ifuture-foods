@@ -5,6 +5,7 @@ import { login } from "../../services/users"
 import { useNavigate } from "react-router-dom";
 import { Button } from '@chakra-ui/react'
 
+
 const LoginForm = () => {
 
     const [form, onChange, clear] = useForm({ email: "", password: "" })
@@ -38,6 +39,7 @@ const LoginForm = () => {
                     required
                 />
                 <Button colorScheme='red' type="submit" variant='solid' >Entrar</Button>
+
             </form>
         </LoginStyled>
 
