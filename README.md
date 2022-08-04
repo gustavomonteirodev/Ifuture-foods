@@ -50,7 +50,7 @@
 - [x] O usuário deve ser capaz de selecionar uma forma de pagamento dentre as opções de cartão e dinheiro
 - [x] O usuário deve ser capaz de concluir um pedido e, ao fazê-lo, deve ver um banner de "Pedido em Andamento" com os dados do pedido (esse banner fica ativo durante X minutos, sendo X o tempo de entrega do restaurante)
 
-### Carrinho e Finalizar Compra
+### Perfil, Editar Perfil e Histórico de Pedidos
 - [x] O usuário deve ser capaz de visualizar seus dados pessoais e endereço
 - [x] O usuário deve ser capaz de editar seus dados pessoais e endereço
 - [x] Ao editar as informações, caso insira alguma informação incorreta ou deixe de inserir alguma informação obrigatória, o usuário deve receber uma mensagem de erro clara
