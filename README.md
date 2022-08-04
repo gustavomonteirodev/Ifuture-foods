@@ -1,6 +1,6 @@
 # Projeto LabeFood
-SOMENTE APP
-grupo 3: fourFoodA
+- Aplicativo com foco exclusivo na versão App mobile
+- Grupo3: fourFoodA
 
 ## User demo
 - Login: lucas12@gmail.com
@@ -20,6 +20,7 @@ grupo 3: fourFoodA
 - Axios -> npm i axios
 - Styled Components -> npm i styled-components 
 
+## 📷 Imagens 
 
 ## Funcionalidades do Projeto
 ### Fluxo de Login/Cadastro
