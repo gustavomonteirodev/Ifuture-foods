@@ -4,7 +4,7 @@ import CardHistoric from "../../Components/CardHistoric";
 import { useNavigate } from "react-router-dom";
 
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
-import { goToEditPage } from "../../Routes/Coordinator";
+import { goToEditPage,goToSignAddress } from "../../Routes/Coordinator";
 import edit from "../../assets/edit.png";
 import useRequestData from "../../hooks/useRequestData";
 
@@ -56,14 +56,14 @@ export default function MyProfilePage() {
         borderRadius={14}
         justifyContent="space-between"
         _active={{ bg: "#f1f1f1" }}
-        onClick={() => goToEditPage(navigate)}
+        onClick={() => goToSignAddress(navigate)}
       >
         <Flex
           mt="10px"
           p="1"
           align="start"
           flexDirection="column"
-          onClick={() => goToEditPage(navigate)}
+          
         >
           <Text mb={2} color="#B8B8B8">
             Endereço Cadastrado
