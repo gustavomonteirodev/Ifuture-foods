@@ -19,6 +19,7 @@
 - CPF Mask -> npm install react-imask
 - Axios -> npm i axios
 - Styled Components -> npm i styled-components 
+- React Icons (Hide/show eyes) -> npm install react-icons --save
 
 ## 📷 Imagens 
 
