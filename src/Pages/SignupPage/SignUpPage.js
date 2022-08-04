@@ -1,21 +1,27 @@
 import React from "react";
 import { goToHomePage } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
-import { Button, Stack } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
 import SignUpForm from "./SignUpForm";
 import RedLogo from "../../assets/RedLogo.png"
-import { SignUpContainer } from "./SignUpStyles"
+import { SignUpContainer, Line, IconPosition } from "./SignUpStyles"
+import { ChevronLeftIcon } from '@chakra-ui/icons'
+
 
 function SignUpPage() {
   const navigate = useNavigate();
 
+
   return (
     <SignUpContainer>
       <Stack direction='column' spacing={-4} align='center'></Stack>
+      <IconPosition>
+      <ChevronLeftIcon w={8} h={8} onClick={() => goToHomePage(navigate)}  />
+      </IconPosition>
+      <Line></Line>
       <img src={RedLogo} alt='logomarca - ifuture vermelha'/>
       <h3>Cadastrar</h3>
       <SignUpForm />
-      <Button colorScheme='teal' variant='solid' onClick={() => goToHomePage(navigate)}>Voltar</Button>
     </SignUpContainer>
   );
 }
