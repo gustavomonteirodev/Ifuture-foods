@@ -30,4 +30,7 @@ export const goToLoginPage = (navigate) => {
   export const goToLastPage = (navigate) => {
     navigate(-1);
   };
-  
+
+  export const goToEditPage = (navigate) =>{
+    navigate("/profileEditPage")
+  }
