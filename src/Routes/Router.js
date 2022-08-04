@@ -4,7 +4,7 @@ import LoginPage from '../Pages/Loginpage/LoginPage'
 import SignUpPage from "../Pages/SignupPage/SignUpPage";
 import CartPage from "../Pages/CartPage/CartPage"
 
-import HomePage from "../Pages/Homepage/HomePage";
+import HomePage from "../Pages/HomePage/HomePage";
 
 import MyProfilePage from "../Pages/MyProfilePage/MyProfilePage";
 import ProfileEditPage  from "../Pages/ProfileEditPage/ProfileEditPage";
