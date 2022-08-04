@@ -1,60 +1,41 @@
 import { BASE_URL } from "../../constants/url";
 import CardHistoric from "../../Components/CardHistoric";
-import { useState, useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
 import { goToEditPage } from "../../Routes/Coordinator";
 import edit from "../../assets/edit.png";
+import useRequestData from "../../hooks/useRequestData";
+
 export default function MyProfilePage() {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
-  const token = window.localStorage.getItem("token");
+  const getProfile = useRequestData([], `${BASE_URL}/profile`);
 
-  const GetProfile = () => {
-    axios
-      .get(`${BASE_URL}/profile`, { headers: { auth: token } })
-      .then((res) => {
-        setData(res.data.user);
-      })
-      .catch((error) => {
-        console.log("GetProfile", error);
-        alert("Deu erro");
-      });
-  };
+  const getHistory = useRequestData([], `${BASE_URL}/orders/history`);
 
-  const GetOrdersHistory = () => {
-    axios
-      .get(`${BASE_URL}/orders/history`, { headers: { auth: token } })
-      .then((res) => {
-        setData2(res.data.orders[0]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  // const asd = GetOrdersHistory()
-  // asd && asd.map((item,i)=> console.log(
-  //     item[i].restaurantName,
-  //     item[i].totalPrice
+  const UserData = getProfile.user && getProfile.user;
 
-  //    )
-  //   )
+  const History = getHistory.orders && getHistory.orders;
 
-  //  console.log(asd)
-  useEffect(() => {
-    GetProfile();
-    GetOrdersHistory();
-  }, []);
+  const CardHistory =
+    History &&
+    History.map((compra, i) => {
+      return (
+        <CardHistoric
+          key={i}
+          name={compra.restaurantName}
+          price={compra.totalPrice}
+        />
+      );
+    });
 
   return (
     <Box p="6" alignItems="center">
-      
       <br />
       <Flex
-      borderRadius={14}
-      _active={{ bg: "#f1f1f1" }}
+        borderRadius={14}
+        _active={{ bg: "#f1f1f1" }}
         justifyContent="space-between"
         onClick={() => goToEditPage(navigate)}
       >
@@ -62,12 +43,11 @@ export default function MyProfilePage() {
           p="1"
           align="start"
           flexDirection="column"
-          
           justifyContent="space-between"
         >
-          <Text>{data.name}</Text>
-          <Text>{data.email}</Text>
-          <Text>{data.cpf}</Text>
+          <Text>{UserData?.name}</Text>
+          <Text>{UserData?.email}</Text>
+          <Text>{UserData?.cpf}</Text>
         </Flex>
         <Image src={edit} w={6} h={6} alt="" />
       </Flex>
@@ -83,15 +63,18 @@ export default function MyProfilePage() {
           p="1"
           align="start"
           flexDirection="column"
-          
           onClick={() => goToEditPage(navigate)}
         >
-          <Text  mb={2} color="#B8B8B8">Endereço Cadastrado</Text>
-          <Text>{data.address}</Text>
+          <Text mb={2} color="#B8B8B8">
+            Endereço Cadastrado
+          </Text>
+          <Text>{UserData?.address}</Text>
         </Flex>
         <Image src={edit} w={6} h={6} alt="" />
       </Flex>
-      <Text mt={6} mb={2} color="#B8B8B8">Historico de compras</Text>
+      <Text mt={6} mb={2} color="#B8B8B8">
+        Historico de compras
+      </Text>
       <Flex
         w="auto"
         borderRadius="5px"
@@ -100,11 +83,7 @@ export default function MyProfilePage() {
         flexDirection="column"
         display="flex"
       />
-
-      <CardHistoric
-        name={data2 && data2.restaurantName}
-        price={data2 && data2.totalPrice}
-      />
+      {CardHistory}
     </Box>
   );
 }

@@ -37,3 +37,18 @@ export const signAddres = (body, clear, navigate) => {
         })
         .catch((err)=> alert(err.response.data.message, ))
 }
+
+export const UpdateProfile = (body,clear,navigate)=>{
+    axios.put(`${BASE_URL}/profile`, body, {
+        headers: {
+            auth: localStorage.getItem("token"),
+        },
+    })
+        .then((res) => {
+            
+            alert("Alteração realizada")
+            clear()
+            
+        })
+        .catch((err)=> alert(err.response.data.message, ))
+}
