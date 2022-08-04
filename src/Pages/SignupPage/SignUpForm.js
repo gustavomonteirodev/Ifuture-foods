@@ -4,6 +4,7 @@ import useForm from "../../hooks/useForm"
 import { signUp } from "../../services/users"
 import { useNavigate } from "react-router-dom";
 import { Button } from '@chakra-ui/react'
+import { IMaskInput } from "react-imask";
 
 const SignUpForm = () => {
 
@@ -18,6 +19,7 @@ const SignUpForm = () => {
             alert("As senhas informadas não são iguais")
         }
     }
+
 
     return (
         <SignUpStyled>
@@ -42,12 +44,13 @@ const SignUpForm = () => {
                     required
                 />
                 <p>CPF*</p>
-                <input
+                <IMaskInput
                     placeholder={"000.000.000-00"}
                     type={"name"}
                     name={"cpf"}
                     value={form.cpf}
                     onChange={onChange}
+                    mask="000.000.000-00"
                     required
                 />
                 <p>Senha*</p>
@@ -57,6 +60,7 @@ const SignUpForm = () => {
                     name={"password"}
                     value={form.password}
                     onChange={onChange}
+                    minLength={6}
                     required
                 />
                 <p>Confirmar*</p>
@@ -66,6 +70,7 @@ const SignUpForm = () => {
                     name={"password2"}
                     value={form.password2}
                     onChange={onChange}
+                    minLength={6}
                     required
                 />
                 <Button colorScheme='red' type="submit" variant='solid'>Cadastrar</Button>

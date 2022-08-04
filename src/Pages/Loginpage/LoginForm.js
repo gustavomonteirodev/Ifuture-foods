@@ -1,10 +1,9 @@
 import React from "react";
-import { LoginStyled } from "./LoginStyles"
+import { LoginStyled, PasswordContainer } from "./LoginStyles"
 import useForm from "../../hooks/useForm"
 import { login } from "../../services/users"
 import { useNavigate } from "react-router-dom";
 import { Button } from '@chakra-ui/react'
-
 
 const LoginForm = () => {
 
@@ -37,7 +36,7 @@ const LoginForm = () => {
                     value={form.password}
                     onChange={onChange}
                     required
-                />
+                     />
                 <Button colorScheme='red' type="submit" variant='solid' >Entrar</Button>
 
             </form>

@@ -37,8 +37,8 @@ export const LoginStyled = styled.div`
 
     input {
         box-sizing: border-box;
-        width: 300px; 
-        height: 50px;
+        width: 20.5rem; 
+        height: 3.5rem;
         border-radius: 5px;
         border: 1px solid #B8B8B8; 
         margin-top: 40px; 
@@ -50,6 +50,9 @@ export const LoginStyled = styled.div`
             :focus { 
     outline: none !important;
     border-color: #E8222E;
+    select:has(option[value=""]) {
+  color: white;
+}
     }
     }
 
@@ -61,8 +64,8 @@ export const LoginStyled = styled.div`
         align-items: center;
         justify-content: center; 
         cursor: pointer;
-        width: 300px;  
-        height: 40px;
+        width: 20.5rem;
+        height: 2.625rem;
         border: 1px solid #E8222E; 
         border-radius: 5px; 
         background-color: #E8222E; 
@@ -77,7 +80,7 @@ export const LoginStyled = styled.div`
 
 export const PageContainer = styled.div`
 
-margin-top: 10%; 
+margin-top: 20%; 
 
     img {
      width: 6.5rem;
