@@ -3,9 +3,9 @@ import CardHistoric from "../../Components/CardHistoric";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Image } from "@chakra-ui/react";
 import { goToEditPage } from "../../Routes/Coordinator";
-
+import edit from "../../assets/edit.png";
 export default function MyProfilePage() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
@@ -50,36 +50,53 @@ export default function MyProfilePage() {
 
   return (
     <Box p="6" alignItems="center">
+      
       <br />
-
       <Flex
-        p="1"
-        align="start"
-        flexDirection="column"
+      borderRadius={14}
+      _active={{ bg: "#f1f1f1" }}
+        justifyContent="space-between"
         onClick={() => goToEditPage(navigate)}
       >
-        <Text>{data.name}</Text>
-        <Text>{data.email}</Text>
-        <Text>{data.cpf}</Text>
+        <Flex
+          p="1"
+          align="start"
+          flexDirection="column"
+          
+          justifyContent="space-between"
+        >
+          <Text>{data.name}</Text>
+          <Text>{data.email}</Text>
+          <Text>{data.cpf}</Text>
+        </Flex>
+        <Image src={edit} w={6} h={6} alt="" />
       </Flex>
-
       <Flex
-        mt="10px"
-        p="1"
-        align="start"
-        flexDirection="column"
+        alignItems="center"
+        borderRadius={14}
+        justifyContent="space-between"
+        _active={{ bg: "#f1f1f1" }}
         onClick={() => goToEditPage(navigate)}
       >
-        <Text color="#B8B8B8">Endereço Cadastrado</Text>
-        <Text>{data.address}</Text>
+        <Flex
+          mt="10px"
+          p="1"
+          align="start"
+          flexDirection="column"
+          
+          onClick={() => goToEditPage(navigate)}
+        >
+          <Text  mb={2} color="#B8B8B8">Endereço Cadastrado</Text>
+          <Text>{data.address}</Text>
+        </Flex>
+        <Image src={edit} w={6} h={6} alt="" />
       </Flex>
-      <br />
-      <Text color="#B8B8B8">Historico de compras</Text>
+      <Text mt={6} mb={2} color="#B8B8B8">Historico de compras</Text>
       <Flex
         w="auto"
         borderRadius="5px"
         h="3px"
-        bgGradient="linear(to-r, #B8B8B8,#E8222E )"
+        bgGradient="linear(to-r, #080808,#E8222E )"
         flexDirection="column"
         display="flex"
       />
@@ -88,8 +105,6 @@ export default function MyProfilePage() {
         name={data2 && data2.restaurantName}
         price={data2 && data2.totalPrice}
       />
-
-      
     </Box>
   );
 }
