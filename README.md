@@ -1,5 +1,5 @@
 # Projeto LabeFood
-- Aplicativo com foco exclusivo na versão App mobile
+- Aplicação web com foco exclusivo na versão mobile
 - Grupo3: fourFoodA
 
 ## User demo
