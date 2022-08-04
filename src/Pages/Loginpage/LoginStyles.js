@@ -8,7 +8,6 @@ export const LoginStyled = styled.div`
     justify-content: center;
     flex-direction: column;
     
-    
     h1 {
         font-size: 45px; 
         margin-bottom: -10px;
