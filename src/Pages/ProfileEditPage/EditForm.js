@@ -1,9 +1,10 @@
 import React from "react";
 // import { goToLastPage } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
-import { Button, Flex } from "@chakra-ui/react";
+import { Button} from "@chakra-ui/react";
 import { UpdateProfile } from "../../services/users";
 import useForm from "../../hooks/useForm";
+import { SignUpStyled } from "../SignupPage/SignUpStyles"
 
 function EditForm() {
   const navigate = useNavigate();
@@ -16,8 +17,9 @@ function EditForm() {
   };
 
   return (
-    <Flex>
+    <SignUpStyled >
       <form onSubmit={onSubmitForm}>
+      <p>email*</p>
         <input
           placeholder="seuemail@email.com"
           type={"email"}
@@ -26,6 +28,7 @@ function EditForm() {
           onChange={onChange}
           required
         />
+        <p>Nome*</p>
         <input
           placeholder="Nome"
           type={"text"}
@@ -34,6 +37,7 @@ function EditForm() {
           onChange={onChange}
           required
         />
+        <p>CPF*</p>
         <input
           placeholder="CPF"
           type={"number"}
@@ -43,10 +47,10 @@ function EditForm() {
           required
         />
         <Button colorScheme="red" type="submit" variant="solid">
-          Entrar
+         Alterar
         </Button>
       </form>
-    </Flex>
+    </SignUpStyled >
   );
 }
 
