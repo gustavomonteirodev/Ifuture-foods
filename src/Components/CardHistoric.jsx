@@ -4,9 +4,10 @@ const CardHistoric = (props) => {
   return (
     <Flex
       align="start"
-      maxW={300}
+      w={250}
       h="6.375rem"
-      mt={7}
+      m={3}
+      mt={5}
       p={0}
       boxShadow="2px 2px 2px 1px rgba(0, 0, 0, 0.1)"
       border="1px solid #b8b8b8"
@@ -14,12 +15,12 @@ const CardHistoric = (props) => {
       flexDirection="column"
       
     >
-      <Text color="#e8222e" m={3}>
+      <Text color="#e8222e " fontWeight={500}  m={3}>
         {props.name}
       </Text>
-      <Text m={3} fontWeight={750} fontSize="md">
+      <Text m={4} fontWeight={750} fontSize="md">
         {" "}
-        SUBTOTAL R$ {props.price}
+        SUBTOTAL {props.price}
       </Text>
     </Flex>
   );

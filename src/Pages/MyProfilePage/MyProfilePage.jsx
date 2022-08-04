@@ -3,35 +3,36 @@ import CardHistoric from "../../Components/CardHistoric";
 
 import { useNavigate } from "react-router-dom";
 
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import {  Flex, Text, Image } from "@chakra-ui/react";
 import { goToEditPage,goToSignAddress } from "../../Routes/Coordinator";
 import edit from "../../assets/edit.png";
 import useRequestData from "../../hooks/useRequestData";
+import useProtectedPage from "../../hooks/useRequestData";
 
 export default function MyProfilePage() {
+  useProtectedPage();
   const navigate = useNavigate();
   const getProfile = useRequestData([], `${BASE_URL}/profile`);
+  const UserData = getProfile.user && getProfile.user;
 
   const getHistory = useRequestData([], `${BASE_URL}/orders/history`);
 
-  const UserData = getProfile.user && getProfile.user;
-
   const History = getHistory.orders && getHistory.orders;
-
+  
   const CardHistory =
     History &&
     History.map((compra, i) => {
-      return (
-        <CardHistoric
-          key={i}
-          name={compra.restaurantName}
-          price={compra.totalPrice}
-        />
-      );
-    });
-
+      
+      return <CardHistoric
+      key={i}
+      name={compra.restaurantName}
+      price={compra.totalPrice.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
+    />
+    }
+    );
+    console.log(CardHistory)
   return (
-    <Box p="6" alignItems="center">
+    <Flex p="6" flexDirection={"column"} >
       <br />
       <Flex
         borderRadius={14}
@@ -83,7 +84,12 @@ export default function MyProfilePage() {
         flexDirection="column"
         display="flex"
       />
-      {CardHistory}
-    </Box>
+      
+    <Flex flexWrap="wrap"  justifyContent={"center"} >
+    {CardHistory}
+    </Flex>
+    
+      {/* {(CardHistory && CardHistory !==0 ) || ((CardHistory && CardHistory === 0 && CardHistory === null )) ?CardHistory:<Text mt="3" ml="3">Você não realizou nenhum pedido</Text>} */}
+    </Flex>
   );
 }

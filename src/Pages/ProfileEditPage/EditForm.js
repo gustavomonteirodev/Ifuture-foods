@@ -5,6 +5,7 @@ import { Button} from "@chakra-ui/react";
 import { UpdateProfile } from "../../services/users";
 import useForm from "../../hooks/useForm";
 import { SignUpStyled } from "../SignupPage/SignUpStyles"
+import {IMaskInput} from  "react-imask"
 
 function EditForm() {
   const navigate = useNavigate();
@@ -38,12 +39,13 @@ function EditForm() {
           required
         />
         <p>CPF*</p>
-        <input
-          placeholder="CPF"
-          type={"number"}
+        <IMaskInput
+          placeholder={"000.000.000-00"}
+          type={"name"}
           name={"cpf"}
           value={form.cpf}
           onChange={onChange}
+          mask="000.000.000-00"
           required
         />
         <Button colorScheme="red" type="submit" variant="solid">
