@@ -15,8 +15,9 @@ import useRequestData from "../../hooks/useRequestData";
 import useProtectedPage from "../../hooks/useRequestData";
 import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 
+
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import { useState } from "react";
+import { useState } from "react"
 
 
 export default function MyProfilePage() {
@@ -143,12 +144,18 @@ const buttonLoginLogout = () =>{
         display="flex"
       />
 
+
       <Flex flexWrap="wrap" justifyContent={"center"}>
         {CardHistory}
       </Flex>
 
       {/* {(CardHistory && CardHistory !==0 ) || ((CardHistory && CardHistory === 0 && CardHistory === null )) ?CardHistory:<Text mt="3" ml="3">Você não realizou nenhum pedido</Text>} */}
       {BarraNavegacao()}
+
+      
+    
+
     </Flex>
+   
   );
 }

@@ -6,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { Button } from '@chakra-ui/react'
 import { IMaskInput } from "react-imask";
 import { FiEye } from "react-icons/fi";
-import { ShowPassword } from "../Loginpage/LoginStyles"
+
+
+import {  ShowPassword } from "../Loginpage/LoginStyles"
+
 const SignUpForm = () => {
 
     const [form, onChange, clear] = useForm({ name: "", email: "", cpf: "", password: "", password2:"" })
