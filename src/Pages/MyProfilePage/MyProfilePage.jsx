@@ -1,23 +1,25 @@
+
+import { useState } from "react"
 import { BASE_URL } from "../../constants/url";
 import CardHistoric from "../../Components/CardHistoric";
-
-import { useNavigate } from "react-router-dom";
-
+import edit from "../../assets/edit.png";
+import useRequestData from "../../hooks/useRequestData";
+import useProtectedPage from "../../hooks/useRequestData";
+import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 import { Flex, Text, Image } from "@chakra-ui/react";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 import {
   goToEditPage,
   goToSignAddress,
   goToLastPage,
   goToLoginPage,
 } from "../../Routes/Coordinator";
-import edit from "../../assets/edit.png";
-import useRequestData from "../../hooks/useRequestData";
-import useProtectedPage from "../../hooks/useRequestData";
-import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 
 
-import { ChevronLeftIcon } from "@chakra-ui/icons";
-import { useState } from "react"
+
+
+
 
 
 export default function MyProfilePage() {
