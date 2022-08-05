@@ -20,7 +20,7 @@ function EditForm() {
   return (
     <SignUpStyled >
       <form onSubmit={onSubmitForm}>
-      <p>email*</p>
+      <p>E-mail*</p>
         <input
           placeholder="seuemail@email.com"
           type={"email"}

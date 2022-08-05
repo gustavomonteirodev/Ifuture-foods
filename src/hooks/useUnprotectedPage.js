@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useLayoutEffect } from 'react'
-import { goToHomePage } from '../routes/coordinator'
+import { goToHomePage } from '../Routes/Coordinator'
 
 const useUnprotectedPage = () => {
   const navigate = useNavigate()

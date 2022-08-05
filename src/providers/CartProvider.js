@@ -7,7 +7,7 @@ export const CartProvider = (props) =>{
   //ele vai herdar os valores que meu provider oferta. 
 
   // O estado do carrinho
-    const[cart,setCart] = useState([]);
+    const[cart,setCart] = useState(['teste']);
 
   // função extraída lá do productScreen.js 
   //Podemos colocar nossas funções aqui
@@ -20,10 +20,7 @@ export const CartProvider = (props) =>{
 // no retorno do provider definimos os valores que serão
 // retornados, nesse caso um objeto com cart,setCart
 // addToCart
-    return <CartContext.Provider value ={{
-        cart,
-        setCart,
-        addToCart}}>
+    return <CartContext.Provider value ={cart}>
 
 {/* {Aqui adicionamos quem será o filho do nosso provider.
 Ele vem carregado pela props} */}

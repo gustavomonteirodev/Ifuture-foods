@@ -34,3 +34,13 @@ export const goToLoginPage = (navigate) => {
   export const goToEditPage = (navigate) =>{
     navigate("/profileEditPage")
   }
+
+
+  export const goToHome = (navigate) => {
+    navigate("/feed");
+  };
+  
+  export const goToSearch = (navigate) => {
+    navigate("/busca");
+  };
+  
