@@ -36,9 +36,9 @@ export const CardChakara = (name, description, price, photoUrl, number) => {
                     <HStack display="flex" flexDir="column" gap="1" >
                     {/* noOfLines='2' */}
                     {/* white-space= 'nowrap' */}
-                        <Text fontSize='md'  fontWeight={700} color='#E8222E' > {name} </Text>
+                        <Text fontSize='md' noOfLines='2' fontWeight={700} color='#E8222E' > {name} </Text>
                         <Text fontSize='sm' fontWeight={400} color='#525252'> {description} </Text>
-                        <Text fontSize='lg' fontWeight={700} > R${price} </Text>
+                        <Text fontSize='md' fontWeight={700} > {price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </Text>
                     </HStack >
                     
                     <Box display="flex" flexDir="column" gap="17vw" marginInlineStart={8}>
@@ -51,15 +51,15 @@ export const CardChakara = (name, description, price, photoUrl, number) => {
                                 color='#fff'
                             > {number || 0}  </Text>
                         </HStack>
-                        <HStack marginLeft={2}>
+                        <HStack >
                             <Button
                                 fontSize={11}
                                 borderTopLeftRadius={10}
                                 borderBottomLeftRadius={0}
                                 borderBottomRightRadius={10}
                                 borderTopRightRadius={0}
-                                w='28.1vw'
-                                marginTop={2}
+                                w='30vw'
+                                marginTop={3}
                                 background='#E8222E'
                                 _hover={{ bg: '#97030d' }}
                                 color='#fff'> remover </Button>

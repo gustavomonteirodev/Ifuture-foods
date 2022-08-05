@@ -11,6 +11,10 @@ import ProfileEditPage  from "../Pages/ProfileEditPage/ProfileEditPage";
 import SignAddressPage  from "../Pages/SignAddressPage/SignAddresPage";
 
 
+import RestaurantSearchPage from "../Pages/RestaurantSearchPage/RestaurantSearchPage";
+import PageHome from "../Pages/PageHome/PageHome";
+
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -22,6 +26,8 @@ const Router = () => {
         <Route path="/cadastrarendereco" element={<SignAddressPage />} />
         <Route path="/myProfile" element={<MyProfilePage/>}/>
         <Route path="/profileEditPage" element={<ProfileEditPage/>}/>
+        <Route path="/feed" element={<PageHome />} />
+        <Route path="/busca" element={<RestaurantSearchPage />} />
       </Routes>
     </BrowserRouter>
   );

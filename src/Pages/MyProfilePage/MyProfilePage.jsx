@@ -8,6 +8,8 @@ import { goToEditPage,goToSignAddress } from "../../Routes/Coordinator";
 import edit from "../../assets/edit.png";
 import useRequestData from "../../hooks/useRequestData";
 import useProtectedPage from "../../hooks/useRequestData";
+import BarraNavegacao from "../../Components/SearchBar/SearchBar";
+
 
 export default function MyProfilePage() {
   useProtectedPage();
@@ -87,9 +89,12 @@ export default function MyProfilePage() {
       
     <Flex flexWrap="wrap"  justifyContent={"center"} >
     {CardHistory}
+    
     </Flex>
     
       {/* {(CardHistory && CardHistory !==0 ) || ((CardHistory && CardHistory === 0 && CardHistory === null )) ?CardHistory:<Text mt="3" ml="3">Você não realizou nenhum pedido</Text>} */}
+    {BarraNavegacao()}
     </Flex>
+   
   );
 }

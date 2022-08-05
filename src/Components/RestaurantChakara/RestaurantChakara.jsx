@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 
 
-export const RestaurantChakara = (name, address, time) => {
+export const RestaurantChakara = (name, address, deliveryTime) => {
 
     return (
   
@@ -22,7 +22,7 @@ export const RestaurantChakara = (name, address, time) => {
                 </HStack>
 
                 <HStack marginLeft={3}>
-                    <Text fontSize='md' fontWeight={400} color='#b8b8b8'> {time}</Text>
+                    <Text fontSize='md' fontWeight={400} color='#b8b8b8'> {deliveryTime}</Text>
                 </HStack>
             </Box>
 

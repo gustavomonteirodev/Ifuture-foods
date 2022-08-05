@@ -4,28 +4,34 @@ import { PayChakara } from "../../Components/PayChakara/PayChakara";
 import { UserAddressChakara } from "../../Components/UserAddressChakara/UserAddressChakara";
 import { RestaurantChakara } from "../../Components/RestaurantChakara/RestaurantChakara";
 import { CartContext } from "../../Contexts/CartContext";
+import { AlertChakara } from "../../Components/AlertChakara/AlertChakara";
 
+import { BASE_URL } from "../../constants/url";
+
+import useRequestData from "../../hooks/useRequestData";
+import { Flex } from "@chakra-ui/react";
+// import useUnprotectedPage from "../../hooks/useUnprotectedPage";
+
+import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 
 function CartPage() {
 
-  //  Todos esses dados seram substituidos pelo context 
 
+
+  // useUnprotectedPage();
+
+  //  Todos esses dados seram substituidos pelo context 
   const teste = useContext(CartContext)
 
   // console.log('ta indooo', teste)
 
-
-  const dadosUser = {
-
-    'address': 'Rua Alessandra Viera, 42'
-  }
 
 
   const dadosRestautante = {
 
     'name': 'Bullguer Vila Madalena',
     'address': 'R.Fradique Coutinho 1136 - Vila Madalena',
-    'time': '30 - 45 min'
+    'deliveryTime': '30 - 45 min'
   }
 
   const cardRestaurante = [
@@ -111,36 +117,41 @@ function CartPage() {
     }
   ]
 
-  // const [priceSum, setPriceSum] = useState(0)
 
-  // const sum = cardRestaurante.map((item, index) => {
+  const getProfile = useRequestData([], `${BASE_URL}/profile`);
+  const Useraddress = getProfile.user?.address && getProfile.user?.address;
 
-  //   setPriceSum(priceSum + cardRestaurante[index].price)
+  const priceSum = cardRestaurante.map(item => item.price).reduce((prev, curr) => prev + curr, 0);
 
-  // })
+
 
   return (
     <div>
       {/* O alert será usado na pagina do Feed quando o pedido for confirmado */}
-      {/* {AlertaChakara()}  */}
+      {AlertChakara(priceSum, dadosRestautante.name)}
 
       {/* Dados do usuario */}
-      {UserAddressChakara(dadosUser.address)}
+      {UserAddressChakara(Useraddress)}
 
-
-      {RestaurantChakara(dadosRestautante.name, dadosRestautante.address, dadosRestautante.time)}
+      {RestaurantChakara(dadosRestautante.name, dadosRestautante.address, dadosRestautante.deliveryTime)}
 
       {/* Map com os valores do useContext */}
 
-      {cardRestaurante.map((item, index) => {
-
-        return CardChakara(cardRestaurante[index].name, cardRestaurante[index].description, cardRestaurante[index].price, cardRestaurante[index].photoUrl, index + 1)
-      })}
-
+      <Flex
+        p="1"
+        align="start"
+        flexDirection="column"
+        justifyContent="space-between"
+      >
+        {cardRestaurante.map((item, index) => {
+          return CardChakara(cardRestaurante[index].name, cardRestaurante[index].description, cardRestaurante[index].price, cardRestaurante[index].photoUrl, index + 1)
+        })}
+      </Flex>
 
       {/* Somar os os valores dos context e somar */}
-      {PayChakara('46,00', '46,00')}
+      {PayChakara(priceSum, 46)}
 
+      {BarraNavegacao()}
     </div>
   );
 }
