@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../Contants/Contants";
+import { BASE_URL } from "../../constants/url";
 import { Box, Flex } from "@chakra-ui/react"
 import { Input } from '@chakra-ui/react'
 import Header from "../../Components/Headers/Header";

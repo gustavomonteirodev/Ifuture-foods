@@ -1,19 +1,25 @@
 import React from "react";
-import { Router } from "./Router/Routes";
-import { ChakraProvider } from "@chakra-ui/react";
+import Router from "./Routes/Router";
+import { ChakraProvider } from '@chakra-ui/react'
+import { CartProvider } from './providers/CartProvider'
 import GlobalState from "./Global/GlobalState";
 
 
-const App = () => {
+function App() {
+// aqui adicionarei o global Context
+
   return (
-    <GlobalState>
-      <ChakraProvider>
-        
-          <Router />
-        
-      </ChakraProvider>
-    </GlobalState>
-  );
-};
+       
+
+    <ChakraProvider>
+      {/* <CartProvider> */}
+      <GlobalState> 
+      <Router>
+        <h1>PROJETO LABEFOOD - GRUPO 3</h1>
+      </Router>
+      {/* </CartProvider> */}
+      </GlobalState>
+    </ChakraProvider>);
+}
 
 export default App;

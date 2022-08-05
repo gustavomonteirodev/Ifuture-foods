@@ -5,7 +5,7 @@ import GlobalContext from "../../Global/GlobalContext";
 import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante";
 import FiltroCategoria from "./FiltroCategoria";
 import { Flex, HStack, Input } from "@chakra-ui/react";
-import { irParaBusca } from "../../Router/Coordinator";
+import { goToSearch } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -38,7 +38,7 @@ const Home = () => {
           w="full"
           placeholder="Pesquisar por Restaurante" 
           alt="Restarante-foto" 
-          onClick={() => irParaBusca(navigate)} />          
+          onClick={() => goToSearch(navigate)} />          
 
         <HStack w="full">
           <FiltroCategoria setCategoria={setCategoria} />
