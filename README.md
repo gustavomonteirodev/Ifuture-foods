@@ -20,6 +20,8 @@
 - Axios -> npm i axios
 - Styled Components -> npm i styled-components 
 - React Icons (Hide/show eyes) -> npm install react-icons --save
+- Chakra Alert -> npm i @chakra-ui/alert
+
 
 ## 📷 Imagens 
 
