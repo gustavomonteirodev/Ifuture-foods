@@ -1,12 +1,11 @@
-
-import { useState } from "react"
+import { useState } from "react";
 import { BASE_URL } from "../../constants/url";
 import CardHistoric from "../../Components/CardHistoric";
 import edit from "../../assets/edit.png";
 import useRequestData from "../../hooks/useRequestData";
 import useProtectedPage from "../../hooks/useRequestData";
 import BarraNavegacao from "../../Components/SearchBar/SearchBar";
-import { Flex, Text, Image } from "@chakra-ui/react";
+import { Flex, Text, Image, Button } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import {
@@ -16,12 +15,6 @@ import {
   goToLoginPage,
 } from "../../Routes/Coordinator";
 
-
-
-
-
-
-
 export default function MyProfilePage() {
   useProtectedPage();
   const navigate = useNavigate();
@@ -30,23 +23,22 @@ export default function MyProfilePage() {
   const getHistory = useRequestData([], `${BASE_URL}/orders/history`);
   const History = getHistory.orders && getHistory.orders;
 
-const token = localStorage.getItem('token')
-const [loginLogout, setLoginLogout] = useState(token? 'Logout':"Login")
+  const token = localStorage.getItem("token");
+  const [loginLogout, setLoginLogout] = useState(token ? "Logout" : "Login");
 
-const logout = () =>{
-  localStorage.removeItem('token')
-}
+  const logout = () => {
+    localStorage.removeItem("token");
+  };
 
-const buttonLoginLogout = () =>{
-  if(token){
-    logout()
-    setLoginLogout("Login")
-    goToLoginPage(navigate)
-  }else{
-    goToLoginPage(navigate)
-  }
-
-}
+  const buttonLoginLogout = () => {
+    if (token) {
+      logout();
+      setLoginLogout("Login");
+      goToLoginPage(navigate);
+    } else {
+      goToLoginPage(navigate);
+    }
+  };
 
   const CardHistory =
     History &&
@@ -62,13 +54,12 @@ const buttonLoginLogout = () =>{
         />
       );
     });
-  
-  
+
   return (
     // HEADER
     // HEADER
     // HEADER
-    <Flex flexDirection={"column"} pb={'50px'}>
+    <Flex flexDirection={"column"} pb={"50px"}>
       <Flex align={"center"} m={2} justifyContent={"space-between"}>
         <ChevronLeftIcon
           ml={2}
@@ -78,7 +69,18 @@ const buttonLoginLogout = () =>{
         />
 
         <Text fontWeight={750}>Meu Perfil</Text>
-        <Text fontWeight={750} mr={2}  onClick={buttonLoginLogout}>{loginLogout}</Text>
+        <Button
+          fontWeight={750}
+          mr={2}
+          bgColor={"#B8B8B8"}
+          _active={{
+            bg: "#E8222E",
+            transform: "scale(0.98)",
+          }}
+          onClick={buttonLoginLogout}
+        >
+          {loginLogout}
+        </Button>
       </Flex>
       <Flex
         w="auto"
@@ -100,7 +102,6 @@ const buttonLoginLogout = () =>{
         onClick={() => goToEditPage(navigate)}
       >
         <Flex
-          
           align="start"
           flexDirection="column"
           justifyContent="space-between"
@@ -115,15 +116,15 @@ const buttonLoginLogout = () =>{
         <Image src={edit} w={6} h={6} alt="Botão-Editar" />
       </Flex>
       <Flex
-         m={2}
-         p={3}
+        m={2}
+        p={3}
         alignItems="center"
         borderRadius={14}
         justifyContent="space-between"
         _active={{ bg: "#f1f1f1" }}
         onClick={() => goToSignAddress(navigate)}
       >
-        <Flex mt="10px"  align="start" flexDirection="column">
+        <Flex mt="10px" align="start" flexDirection="column">
           <Text mb={2} color="#B8B8B8">
             Endereço Cadastrado
           </Text>
@@ -146,18 +147,12 @@ const buttonLoginLogout = () =>{
         display="flex"
       />
 
-
       <Flex flexWrap="wrap" justifyContent={"center"}>
         {CardHistory}
       </Flex>
 
       {/* {(CardHistory && CardHistory !==0 ) || ((CardHistory && CardHistory === 0 && CardHistory === null )) ?CardHistory:<Text mt="3" ml="3">Você não realizou nenhum pedido</Text>} */}
       {BarraNavegacao()}
-
-      
-    
-
     </Flex>
-   
   );
 }
