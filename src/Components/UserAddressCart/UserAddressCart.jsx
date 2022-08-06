@@ -5,7 +5,7 @@ import {
     Box,
 } from '@chakra-ui/react'
 
-export const UserAddressChakara = (address) => {
+export const UserAddressCart = (address) => {
 
     return (
         <>

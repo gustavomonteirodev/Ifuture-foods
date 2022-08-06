@@ -1,14 +1,11 @@
 import React from "react";
 import {
-    Button,
     Text,
     HStack,
     Box,
-    Image,
 } from '@chakra-ui/react'
 
-
-export const RestaurantChakara = (name, address, deliveryTime) => {
+export const RestaurantCart = (name, address, deliveryTime) => {
 
     return (
   

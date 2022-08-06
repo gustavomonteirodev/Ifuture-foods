@@ -1,7 +1,7 @@
 
 import { CartContext } from "../../Contexts/CartContext";
 
-export const TestandoContext = () => {
+export const TestandoContext = ({children}) => {
 
     const cardRestaurante = [
         {
@@ -86,9 +86,11 @@ export const TestandoContext = () => {
         }
     ]
 
+    console.log (children)
     return (
 
         <CartContext.Provider value={cardRestaurante}>
+                {children}
         </CartContext.Provider>
     )
 

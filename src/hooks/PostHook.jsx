@@ -8,6 +8,8 @@ import { useState } from "react"
 
 
 export const PostHook = (url, body) => {
+
+  console.log('chegando no PostHook')
   
   const [data, setData] = useState([])
 
@@ -17,6 +19,7 @@ export const PostHook = (url, body) => {
       )
       .then((response) => {
         setData(response.data)
+        console.log(response.data)
       })
       .catch((err) => {
         console.log(err);
