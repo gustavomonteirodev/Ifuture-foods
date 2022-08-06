@@ -1,13 +1,36 @@
 import { Flex, Image, SimpleGrid,} from "@chakra-ui/react";
 import home from "../../assets/home.png";
+import homeRed from "../../assets/homeRed.png";
 import carrinho from "../../assets/carrinho.png";
+import carrinhoRed from "../../assets/carrinho.png";
 import avatar from "../../assets/avatar.png";
+import avatarRed from "../../assets/avatar.png";
 import { useNavigate } from "react-router-dom";
 import { goToHome , goToCartPage, goToProfilePage} from "../../Routes/Coordinator";
+import { useState } from "react";
 
-
-const BarraNavegacao = () => {
+const BarraNavegacao = ( iconHome, iconCart, iconAvatar ) => {
   const navigate = useNavigate();
+
+  
+  const [icon1, setIcon1] = useState(home)
+  const [icon2, setIcon2] = useState(carrinho)
+  const [icon3, setIcon3] = useState(avatar)
+
+
+  if(iconHome === 'red'){
+    setIcon1(homeRed)
+  }
+  
+  if(iconCart === 'red'){
+    setIcon2(carrinhoRed)
+    
+  }
+
+  if(iconAvatar === 'red'){
+    setIcon3(avatarRed)
+  }
+
 
   return (
     <SimpleGrid
@@ -23,7 +46,7 @@ const BarraNavegacao = () => {
     >
       <Flex justify={"center"}>
         <Image
-          src={home}
+          src={icon1}
           onClick={() => goToHome(navigate)}
           width="27px"
           height="27px"
@@ -31,7 +54,7 @@ const BarraNavegacao = () => {
       </Flex>
       <Flex justify={"center"}>
         <Image
-          src={carrinho}
+          src={icon2}
           onClick={() => goToCartPage(navigate)}
           width="27px"
           height="27px"
@@ -39,7 +62,7 @@ const BarraNavegacao = () => {
       </Flex>
       <Flex justify={"center"}>
         <Image
-          src={avatar}
+          src={icon3}
           onClick={() => goToProfilePage(navigate)}
           width="27px"
           height="27px"

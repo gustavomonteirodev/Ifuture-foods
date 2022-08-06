@@ -7,8 +7,7 @@ import {
 } from '@chakra-ui/react'
 import { TimeIcon } from '@chakra-ui/icons'
 
-
-export const AlertChakara = (priceSum, name) => {
+export const AlertCart = (priceSum, name) => {
 
     return (
         <div>
