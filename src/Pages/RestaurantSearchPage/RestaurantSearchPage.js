@@ -6,7 +6,10 @@ import { Box, Flex, HStack, Text, Divider } from "@chakra-ui/react"
 import { Input } from '@chakra-ui/react'
 import SearchBar from "../../Components/SearchBar/SearchBar";
 
-const PaginaBuscarRestaurante = () => {
+import { irParaDetalhesRestaurante } from "../../Routes/Coordinator"
+
+
+const RestaurantSearchPage = () => {
 
   const navigate = useNavigate()
   const [restaurantes, setRestaurantes] = useState([])
@@ -51,6 +54,8 @@ const PaginaBuscarRestaurante = () => {
           border='1px solid #b8b8b8'
           borderRadius="10px 10px"
           key={restaurante.id}
+          onClick={() => irParaDetalhesRestaurante(navigate, restaurante.id)}
+
           bg='#FBFBFB'
           boxShadow='2px 2px 2px 1px rgba(0, 0, 0, 0.1)'
         >
@@ -114,4 +119,4 @@ const PaginaBuscarRestaurante = () => {
   )
 }
 
-export default PaginaBuscarRestaurante
+export default RestaurantSearchPage

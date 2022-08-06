@@ -4,6 +4,9 @@ import { Box, VStack } from "@chakra-ui/react";
 
 import GlobalContext from "../../Global/GlobalContext";
 
+
+import { irParaDetalhesRestaurante } from "../../Routes/Coordinator";
+
 const CardRestaurante = (props) => {
   const navigate = useNavigate();
   const { states } = useContext(GlobalContext);
@@ -32,6 +35,9 @@ const CardRestaurante = (props) => {
                 justifyContent="center"
                 width="100%"
                 key={restaurante.id}
+                onClick={() =>
+                  irParaDetalhesRestaurante(navigate, restaurante.id)
+                }
                 border='1px solid #b8b8b8'
                 borderRadius="10px 10px"
                 bg='#FBFBFB'
