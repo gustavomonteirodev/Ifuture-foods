@@ -13,7 +13,7 @@ export const CardCart = (name, description, price, photoUrl, number) => {
         <div>
             <Box marginBottom={4}>
                 <HStack
-                    marginTop='6vw'
+                    marginTop='2vw'
                     marginLeft='3vw'
                     bg='#FBFBFB'
                     border='1px solid #b8b8b8'
