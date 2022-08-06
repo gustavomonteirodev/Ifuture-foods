@@ -15,10 +15,13 @@ const CardHistoric = (props) => {
       flexDirection="column"
       
     >
-      <Text color="#e8222e " fontWeight={500} ml={6} mt={4}>
+      <Text color="#e8222e " fontWeight={500} ml={6} mt={1}>
         {props.name}
       </Text>
-      <Text ml={6} mt={4} fontWeight={750} fontSize="md">
+      <Text color="000 " fontWeight={300} ml={6} mt={1}>
+        {props.date}
+      </Text>
+      <Text ml={6} mt={3} fontWeight={750} fontSize="md">
         {" "}
         SUBTOTAL {props.price}
       </Text>

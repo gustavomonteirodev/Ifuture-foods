@@ -24,8 +24,8 @@ const Router = () => {
         <Route path="/carrinho" element={<CartPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/cadastrarendereco" element={<SignAddressPage />} />
-        <Route path="/myProfile" element={<MyProfilePage/>}/>
-        <Route path="/profileEditPage" element={<ProfileEditPage/>}/>
+        <Route path="/profile" element={<MyProfilePage/>}/>
+        <Route path="/profile/editPage" element={<ProfileEditPage/>}/>
         <Route path="/busca" element={<RestaurantSearchPage />} />
 
       {/* rota para pagina de detalhes do restaurante com os produtos  */}
