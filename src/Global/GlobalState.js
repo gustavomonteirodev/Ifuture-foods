@@ -5,6 +5,11 @@ import GlobalContext from './GlobalContext'
 const GlobalState = (props) => {
 
   const [restaurantes, setRestaurantes] = useState([])
+  const [detalhes, setDetalhes] = useState({})
+  const [carrinho, setCarrinho] = useState([])
+  const [pedidos, setPedidos] = useState([])
+  const [pedidoEmAndamento, setPedidoEmAndamento] = useState(false)
+  const [detalhesPedido, setDetalhesPedido] = useState(null)
 
   const pegarRestaurantes = () => {
     const token = localStorage.getItem("token")
@@ -30,8 +35,8 @@ const GlobalState = (props) => {
   }
 
 
-  const states = {restaurantes}
-  const setters = {setRestaurantes}
+  const states = {restaurantes, detalhes, carrinho, pedidos, pedidoEmAndamento, detalhesPedido}
+  const setters = {setRestaurantes, setDetalhes, setCarrinho, setPedidos, setPedidoEmAndamento, setDetalhesPedido}
   const requests = {pegarRestaurantes, pegarDetalhes}
 
   

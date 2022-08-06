@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
-import { CardChakara } from "../../Components/CardCartChakara/CardChakara";
-import { PayChakara } from "../../Components/PayChakara/PayChakara";
-import { UserAddressChakara } from "../../Components/UserAddressChakara/UserAddressChakara";
-import { RestaurantChakara } from "../../Components/RestaurantChakara/RestaurantChakara";
+import React, { useContext} from "react";
+import { CardCart } from "../../Components/CardCart/CardCart";
+import { PayCart } from "../../Components/PayCart/PayCart";
+import { UserAddressCart } from "../../Components/UserAddressCart/UserAddressCart";
+import { RestaurantCart } from "../../Components/RestaurantCart/RestaurantCart";
 import { CartContext } from "../../Contexts/CartContext";
-import { AlertChakara } from "../../Components/AlertChakara/AlertChakara";
+import { AlertCart } from "../../Components/AlertCart/AlertCart";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 import { BASE_URL } from "../../constants/url";
 
@@ -16,6 +17,7 @@ import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 
 function CartPage() {
 
+  useProtectedPage()
 
 
   // useUnprotectedPage();
@@ -24,8 +26,6 @@ function CartPage() {
   const teste = useContext(CartContext)
 
   // console.log('ta indooo', teste)
-
-
 
   const dadosRestautante = {
 
@@ -126,14 +126,14 @@ function CartPage() {
 
 
   return (
-    <div>
+    <div> 
       {/* O alert será usado na pagina do Feed quando o pedido for confirmado */}
-      {AlertChakara(priceSum, dadosRestautante.name)}
+      {/* {AlertCart(priceSum, dadosRestautante.name)} */}
 
       {/* Dados do usuario */}
-      {UserAddressChakara(Useraddress)}
+      {UserAddressCart(Useraddress)}
 
-      {RestaurantChakara(dadosRestautante.name, dadosRestautante.address, dadosRestautante.deliveryTime)}
+      {RestaurantCart(dadosRestautante.name, dadosRestautante.address, dadosRestautante.deliveryTime)}
 
       {/* Map com os valores do useContext */}
 
@@ -144,16 +144,19 @@ function CartPage() {
         justifyContent="space-between"
       >
         {cardRestaurante.map((item, index) => {
-          return CardChakara(cardRestaurante[index].name, cardRestaurante[index].description, cardRestaurante[index].price, cardRestaurante[index].photoUrl, index + 1)
+          return CardCart(cardRestaurante[index].name, cardRestaurante[index].description, cardRestaurante[index].price, cardRestaurante[index].photoUrl, index + 1)
         })}
       </Flex>
 
       {/* Somar os os valores dos context e somar */}
-      {PayChakara(priceSum, 46)}
+      {PayCart(priceSum, 46)}
 
-      {BarraNavegacao()}
-    </div>
-  );
-}
+      {BarraNavegacao(false,true,false)}
+      </div>
+
+  )
+      }
 
 export default CartPage;
+
+

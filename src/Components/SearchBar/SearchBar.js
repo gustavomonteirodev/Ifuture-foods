@@ -1,12 +1,15 @@
 import { Flex, Image, SimpleGrid,} from "@chakra-ui/react";
 import home from "../../assets/home.png";
+import homeRed from "../../assets/homeRed.png";
 import carrinho from "../../assets/carrinho.png";
+import carrinhoRed from "../../assets/carrinhoRed.png";
 import avatar from "../../assets/avatar.png";
+import avatarRed from "../../assets/avatarRed.png";
 import { useNavigate } from "react-router-dom";
 import { goToHome , goToCartPage, goToProfilePage} from "../../Routes/Coordinator";
+import { useState } from "react";
 
-
-const BarraNavegacao = () => {
+const BarraNavegacao = ( iconHome, iconCart, iconAvatar ) => {
   const navigate = useNavigate();
 
   return (
@@ -23,7 +26,7 @@ const BarraNavegacao = () => {
     >
       <Flex justify={"center"}>
         <Image
-          src={home}
+          src={iconHome === true ? homeRed : home }
           onClick={() => goToHome(navigate)}
           width="27px"
           height="27px"
@@ -31,7 +34,7 @@ const BarraNavegacao = () => {
       </Flex>
       <Flex justify={"center"}>
         <Image
-          src={carrinho}
+          src={iconCart === true ? carrinhoRed : carrinho }
           onClick={() => goToCartPage(navigate)}
           width="27px"
           height="27px"
@@ -39,7 +42,7 @@ const BarraNavegacao = () => {
       </Flex>
       <Flex justify={"center"}>
         <Image
-          src={avatar}
+          src={iconAvatar === true ? avatarRed : avatar }
           onClick={() => goToProfilePage(navigate)}
           width="27px"
           height="27px"

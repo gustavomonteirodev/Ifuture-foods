@@ -3,7 +3,7 @@ import { BASE_URL } from "../../constants/url";
 import CardHistoric from "../../Components/CardHistoric";
 import edit from "../../assets/edit.png";
 import useRequestData from "../../hooks/useRequestData";
-import useProtectedPage from "../../hooks/useRequestData";
+import useProtectedPage from "../../hooks/useProtectedPage";
 import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 import { Flex, Text, Image, Button } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
@@ -17,6 +17,8 @@ import {
 
 export default function MyProfilePage() {
   useProtectedPage();
+
+
   const navigate = useNavigate();
   const getProfile = useRequestData([], `${BASE_URL}/profile`);
   const UserData = getProfile.user && getProfile.user;
@@ -70,11 +72,15 @@ export default function MyProfilePage() {
 
         <Text fontWeight={750}>Meu Perfil</Text>
         <Button
-          fontWeight={750}
+        boxShadow="2px 2px 2px 1px rgba(0, 0, 0, 0.1)"
+          size={'xs'}
+          fontWeight={500}
           mr={2}
-          bgColor={"#B8B8B8"}
+          color={'#b8b8b8'}
+          bgColor={"#ececec"}
           _active={{
-            bg: "#E8222E",
+            bgColor: "#E8222E",
+            color:' white',
             transform: "scale(0.98)",
           }}
           onClick={buttonLoginLogout}
@@ -82,6 +88,7 @@ export default function MyProfilePage() {
           {loginLogout}
         </Button>
       </Flex>
+
       <Flex
         w="auto"
         mb={5}
@@ -113,7 +120,7 @@ export default function MyProfilePage() {
           <Text>{UserData?.email}</Text>
           <Text>{UserData?.cpf}</Text>
         </Flex>
-        <Image src={edit} w={6} h={6} alt="Botão-Editar" />
+        <Image src={edit} mt={'5'} w={6} h={6} alt="Botão-Editar" />
       </Flex>
       <Flex
         m={2}
@@ -152,7 +159,14 @@ export default function MyProfilePage() {
       </Flex>
 
       {/* {(CardHistory && CardHistory !==0 ) || ((CardHistory && CardHistory === 0 && CardHistory === null )) ?CardHistory:<Text mt="3" ml="3">Você não realizou nenhum pedido</Text>} */}
-      {BarraNavegacao()}
+
+    
+    
+
+    {BarraNavegacao(false,false, true)}
     </Flex>
+
+ 
+
   );
 }

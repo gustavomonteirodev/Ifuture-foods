@@ -1,13 +1,15 @@
-import {React, useState, useEffect} from 'react'
+import { React, useState, useEffect } from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
-import { Box, Flex } from "@chakra-ui/react"
+import { Box, Flex, HStack, Text, Divider } from "@chakra-ui/react"
 import { Input } from '@chakra-ui/react'
-import Header from "../../Components/Headers/Header";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 
-const PaginaBuscarRestaurante = () => {
+import { irParaDetalhesRestaurante } from "../../Routes/Coordinator"
+
+
+const RestaurantSearchPage = () => {
 
   const navigate = useNavigate()
   const [restaurantes, setRestaurantes] = useState([])
@@ -44,40 +46,49 @@ const PaginaBuscarRestaurante = () => {
     .map((restaurante) => {
       return (
         <Box
+          marginBottom={2}
           display='flex'
           flexDirection='column'
           justifyContent='center'
           width='100%'
-          border="1px solid #262626"
-          borderRadius='5px'
+          border='1px solid #b8b8b8'
+          borderRadius="10px 10px"
           key={restaurante.id}
+          onClick={() => irParaDetalhesRestaurante(navigate, restaurante.id)}
+
+          bg='#FBFBFB'
+          boxShadow='2px 2px 2px 1px rgba(0, 0, 0, 0.1)'
         >
           <Box
             width='100%'
             maxW='328px'
             height='120px'
-            borderRadius='5px 5px'
             backgroundSize={'cover'}
             backgroundPosition='center'
             backgroundImage={restaurante.logoUrl}
+            borderTopRadius='10px 10px'
           />
           <Box padding='16px'
           >
             <Box fontWeight='semibold' as='h3' color='red'>{restaurante.name}</Box>
-            <Box display='flex' justifyContent='space-between' color='#262626'>
-              <p>Tempo de: {restaurante.deliveryTime} min</p>
-              <p>Frete: R$ {restaurante.shipping},00</p>
+            <Box display='flex' justifyContent='space-between' color='#aaaaaa'>
+              <p>{restaurante.deliveryTime} - { (  Math.round( restaurante.deliveryTime * 0.30 ) + restaurante.deliveryTime )} min</p>
+              <p>Frete: {restaurante.shipping.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
             </Box>
           </Box>
         </Box>
-
-
       )
     })
 
   return (
-    <div >
-      <Header titulo="Ifuture" />
+    <div>
+      <Box marginBottom={20}>
+      <HStack justify="center" padding={2}>
+        <HStack justify="center" padding={2}>
+          <Text fontSize='md' fontWeight={600} fontFamily='heading' color='#646464'> Pesquisar </Text>
+        </HStack>
+        <Divider marginTop={2} padding={.3} background='#a3a3a3'></Divider>
+      </HStack>
       <Flex
         direction='column'
         align='center'
@@ -98,13 +109,14 @@ const PaginaBuscarRestaurante = () => {
           maxW='328px'
           gap='8px'
         >
-        {filtrandoRestaurantes}
+          {filtrandoRestaurantes}
         </Flex>
       </Flex>
-      <SearchBar />
+      </Box> 
+      <SearchBar/>
     </div>
-    
+
   )
 }
 
-export default PaginaBuscarRestaurante
+export default RestaurantSearchPage

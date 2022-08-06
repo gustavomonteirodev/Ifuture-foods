@@ -5,6 +5,8 @@ import { Box, VStack } from "@chakra-ui/react";
 import GlobalContext from "../../Global/GlobalContext";
 
 
+import { irParaDetalhesRestaurante } from "../../Routes/Coordinator";
+
 const CardRestaurante = (props) => {
   const navigate = useNavigate();
   const { states } = useContext(GlobalContext);
@@ -32,32 +34,36 @@ const CardRestaurante = (props) => {
                 flexDirection="column"
                 justifyContent="center"
                 width="100%"
-                border="1px solid #262626"
-                borderRadius="5px"
                 key={restaurante.id}
-                
+                onClick={() =>
+                  irParaDetalhesRestaurante(navigate, restaurante.id)
+                }
+                border='1px solid #b8b8b8'
+                borderRadius="10px 10px"
+                bg='#FBFBFB'
+                boxShadow='2px 2px 2px 1px rgba(0, 0, 0, 0.1)'
               >
                 <Box
                   width='100%'
                   maxW='328px'
                   height='120px'
-                  borderRadius='5px 5px'
                   backgroundSize={'cover'}
                   backgroundPosition='center'
                   backgroundImage={restaurante.logoUrl}
-                  
+                  borderTopRadius='10px 10px'
                 />
                 <Box padding="16px">
                   <Box fontWeight="semibold" as="h3" color="red">
                     {restaurante.name}
                   </Box>
                   <Box
+                  marginTop={1}
                     display="flex"
                     justifyContent="space-between"
-                    color="#262626"
-                  >
-                    <p>Tempo de: {restaurante.deliveryTime} min</p>
-                    <p>Frete: R$ {restaurante.shipping},00</p>
+                    color='#aaaaaa'
+                    >
+                    <p> {restaurante.deliveryTime} - { (  Math.round( restaurante.deliveryTime * 0.30 ) + restaurante.deliveryTime ) } min</p>
+                    <p>Frete: {restaurante.shipping.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
                   </Box>
                 </Box>
               </Box>

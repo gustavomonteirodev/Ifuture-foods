@@ -1,10 +1,9 @@
-import SearchBar from "../../Components/SearchBar/SearchBar";
-import Header from "../../Components/Headers/Header";
+import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 import React, { useEffect, useContext, useState } from "react";
 import GlobalContext from "../../Global/GlobalContext";
 import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante";
 import FiltroCategoria from "./FiltroCategoria";
-import { Flex, HStack, Input } from "@chakra-ui/react";
+import { Flex, HStack, Input , Divider, Text} from "@chakra-ui/react";
 import { goToSearch } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
 
@@ -21,7 +20,11 @@ const Home = () => {
 
   return (
     <>
-      <Header titulo="Ifuture odio do dia" />
+      <HStack justify="center" padding={2}>
+          <Text fontSize='md' fontWeight={600} fontFamily='heading' color='#646464'> Feed </Text>
+      </HStack>
+      <Divider marginTop={2} padding={.3} background='#a3a3a3'></Divider> 
+
       <Flex
         direction='column'
         align='center'
@@ -54,7 +57,7 @@ const Home = () => {
           <CardRestaurante categoria={categoria} />
         </Flex>      
       </Flex>
-      <SearchBar />
+      {BarraNavegacao(true,false,false)}
     </>
   )
 }

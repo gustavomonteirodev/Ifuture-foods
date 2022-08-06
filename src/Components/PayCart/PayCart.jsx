@@ -11,15 +11,37 @@ import {
     Radio,
     RadioGroup,
 } from '@chakra-ui/react'
+import { PostHook } from "../../hooks/PostHook";
+import { confirmingPurchase } from "../../services/users";
 
 
-export const PayChakara = (shipping, totalSun) => {
+export const PayCart = (shipping, totalSun, IdAndQuantity) => {
 
     const navigate = useNavigate();
 
     const [value, setValue] = useState('')
 
 
+    const checkout = (IdAndQuantity) => {
+
+
+    const item =  {
+            "products": [{
+                "id": "CnKdjU6CyKakQDGHzNln",
+                "quantity": 10
+            }, {
+                "quantity": 1,
+                "id": "KJqMl2DxeShkSBevKVre"
+            }],
+            "paymentMethod": {value}
+        }
+
+        const url = `/fourFoodA/restaurants/${5}/order`
+
+        confirmingPurchase(item,5)
+
+
+    }
 
     return (
         <>
@@ -38,20 +60,20 @@ export const PayChakara = (shipping, totalSun) => {
 
                 <RadioGroup onChange={setValue} value={value}>
                     <Stack>
-                        <Radio colorScheme='red' borderRadius={0} value='Dinheiro'> Dinheiro </Radio>
-                        <Radio colorScheme='red' borderRadius={0} value='Cartão de crédito'> Cartão de crédito</Radio>
+                        <Radio  fontSize='14' fontWeight={400} colorScheme='red' borderRadius={0} value='Dinheiro'> Dinheiro </Radio>
+                        <Radio  fontSize='14' fontWeight={400} colorScheme='red' borderRadius={0} value='Cartão de crédito'> Cartão de crédito</Radio>
                     </Stack>
                 </RadioGroup>
             </Box>
 
-            <HStack justify="center" display="flex" flexDir="column" marginBottom={10} marginTop={10}>
+            <HStack justify="center" display="flex" flexDir="column" marginBottom={20} marginTop={10}>
                 <Button
                     background='#E8222E'
                     color='#fff'
                     minWidth={350}
                     variant='solid'
                     _hover={{ bg: '#97030d' }}
-                    onClick={() => console.log(value)} > Confirmar </Button>
+                    onClick={() => checkout()} > Confirmar </Button>
             </HStack>
         </>
     )

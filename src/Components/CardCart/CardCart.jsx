@@ -7,14 +7,13 @@ import {
     Image,
 } from '@chakra-ui/react'
 
-
-export const CardChakara = (name, description, price, photoUrl, number) => {
+export const CardCart = (name, description, price, photoUrl, number) => {
 
     return (
         <div>
             <Box marginBottom={4}>
                 <HStack
-                    marginTop='6vw'
+                    marginTop='2vw'
                     marginLeft='3vw'
                     bg='#FBFBFB'
                     border='1px solid #b8b8b8'
@@ -31,16 +30,14 @@ export const CardChakara = (name, description, price, photoUrl, number) => {
                         borderLeftRadius={10}
                         maxW={122}
                         minW={122}
-                        src={photoUrl}/>
+                        src={photoUrl} />
 
                     <HStack display="flex" flexDir="column" gap="1" >
-                    {/* noOfLines='2' */}
-                    {/* white-space= 'nowrap' */}
                         <Text fontSize='md' noOfLines='2' fontWeight={700} color='#E8222E' > {name} </Text>
                         <Text fontSize='sm' fontWeight={400} color='#525252'> {description} </Text>
-                        <Text fontSize='md' fontWeight={700} > {price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </Text>
+                        <Text fontSize='md' fontWeight={700} > {price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} </Text>
                     </HStack >
-                    
+
                     <Box display="flex" flexDir="column" gap="17vw" marginInlineStart={8}>
                         <HStack marginLeft={20}>
                             <Text
