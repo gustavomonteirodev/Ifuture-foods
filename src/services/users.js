@@ -52,3 +52,21 @@ export const UpdateProfile = (body,clear,navigate)=>{
         })
         .catch((err)=> alert(err.response.data.message, ))
 }
+
+
+export const confirmingPurchase = (body,id,navigate)=>{
+    axios.post(`${BASE_URL}//fourFoodA/restaurants/${id}/order`, body, {
+        headers: {
+            auth: localStorage.getItem("token"),
+        },
+    })
+        .then((res) => {
+            
+        alert("Alteração realizada")
+        // goToHomePage(navigate)
+
+       
+            
+        })
+        .catch((err)=> alert(err.response.data.message, ))
+}

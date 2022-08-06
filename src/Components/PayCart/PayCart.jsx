@@ -12,6 +12,7 @@ import {
     RadioGroup,
 } from '@chakra-ui/react'
 import { PostHook } from "../../hooks/PostHook";
+import { confirmingPurchase } from "../../services/users";
 
 
 export const PayCart = (shipping, totalSun, IdAndQuantity) => {
@@ -37,7 +38,7 @@ export const PayCart = (shipping, totalSun, IdAndQuantity) => {
 
         const url = `/fourFoodA/restaurants/${5}/order`
 
-        PostHook(url , item)
+        confirmingPurchase(item,5)
 
 
     }
@@ -65,7 +66,7 @@ export const PayCart = (shipping, totalSun, IdAndQuantity) => {
                 </RadioGroup>
             </Box>
 
-            <HStack justify="center" display="flex" flexDir="column" marginBottom={10} marginTop={10}>
+            <HStack justify="center" display="flex" flexDir="column" marginBottom={20} marginTop={10}>
                 <Button
                     background='#E8222E'
                     color='#fff'

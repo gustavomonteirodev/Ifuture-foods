@@ -7,12 +7,14 @@ import {  Flex, Text, Image } from "@chakra-ui/react";
 import { goToEditPage,goToSignAddress } from "../../Routes/Coordinator";
 import edit from "../../assets/edit.png";
 import useRequestData from "../../hooks/useRequestData";
-import useProtectedPage from "../../hooks/useRequestData";
+import useProtectedPage from "../../hooks/useProtectedPage";
 import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 
 
 export default function MyProfilePage() {
   useProtectedPage();
+
+
   const navigate = useNavigate();
   const getProfile = useRequestData([], `${BASE_URL}/profile`);
   const UserData = getProfile.user && getProfile.user;
@@ -34,6 +36,8 @@ export default function MyProfilePage() {
     );
     console.log(CardHistory)
   return (
+
+    <Flex> 
     <Flex p="6" flexDirection={"column"} >
       <br />
       <Flex
@@ -93,8 +97,11 @@ export default function MyProfilePage() {
     </Flex>
     
       {/* {(CardHistory && CardHistory !==0 ) || ((CardHistory && CardHistory === 0 && CardHistory === null )) ?CardHistory:<Text mt="3" ml="3">Você não realizou nenhum pedido</Text>} */}
-    {BarraNavegacao()}
     </Flex>
-   
+
+    {BarraNavegacao(false,false, true)}
+    </Flex>
+
+ 
   );
 }

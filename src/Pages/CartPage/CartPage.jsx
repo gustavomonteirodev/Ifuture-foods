@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import { CardCart } from "../../Components/CardCart/CardCart";
 import { PayCart } from "../../Components/PayCart/PayCart";
 import { UserAddressCart } from "../../Components/UserAddressCart/UserAddressCart";
 import { RestaurantCart } from "../../Components/RestaurantCart/RestaurantCart";
 import { CartContext } from "../../Contexts/CartContext";
 import { AlertCart } from "../../Components/AlertCart/AlertCart";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 import { BASE_URL } from "../../constants/url";
 
@@ -16,13 +17,15 @@ import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 
 function CartPage() {
 
+  useProtectedPage()
+
+
   // useUnprotectedPage();
 
   //  Todos esses dados seram substituidos pelo context 
   const teste = useContext(CartContext)
 
   // console.log('ta indooo', teste)
-
 
   const dadosRestautante = {
 
@@ -125,7 +128,7 @@ function CartPage() {
   return (
     <div> 
       {/* O alert será usado na pagina do Feed quando o pedido for confirmado */}
-      {AlertCart(priceSum, dadosRestautante.name)}
+      {/* {AlertCart(priceSum, dadosRestautante.name)} */}
 
       {/* Dados do usuario */}
       {UserAddressCart(Useraddress)}
@@ -148,7 +151,7 @@ function CartPage() {
       {/* Somar os os valores dos context e somar */}
       {PayCart(priceSum, 46)}
 
-      {BarraNavegacao()}
+      {BarraNavegacao(false,true,false)}
       </div>
 
   )

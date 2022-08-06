@@ -1,4 +1,4 @@
-import SearchBar from "../../Components/SearchBar/SearchBar";
+import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 import React, { useEffect, useContext, useState } from "react";
 import GlobalContext from "../../Global/GlobalContext";
 import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante";
@@ -57,7 +57,7 @@ const Home = () => {
           <CardRestaurante categoria={categoria} />
         </Flex>      
       </Flex>
-      <SearchBar />
+      {BarraNavegacao(true,false,false)}
     </>
   )
 }
