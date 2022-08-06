@@ -16,8 +16,9 @@ import {
   Select,
   useDisclosure,
 } from "@chakra-ui/react";
+import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 
-const PaginaDetalhesRestaurante = () => {
+const PaginaDetalhesRestaurante = (props) => {
   const pathParams = useParams();
 
   const { states, requests, setters } = useContext(GlobalContext);
@@ -27,6 +28,12 @@ const PaginaDetalhesRestaurante = () => {
   const [selectedProduct, setSelectedProduct] = useState({});
   const [valor, setValor] = useState(1);
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const index = localStorage.getItem("IdCardDetail")
+
+  console.log(states)
+
+  const indexRestautant =  index == 10 ? 1 : (index == 1 ? 0 : index) 
 
   const categorias = [];
   
@@ -116,19 +123,19 @@ const PaginaDetalhesRestaurante = () => {
           marginBottom="20px"
           backgroundSize={"cover"}
           backgroundPosition="center"
-          backgroundImage={states.detalhes.logoUrl}
+          backgroundImage={states.restaurantes[indexRestautant].logoUrl}
         />
         <Box width="100%" maxW="350px" color="#262626">
           <Box fontWeight="semibold" as="h3" color="#262626">
-            {states.detalhes.name}
+            {states.restaurantes[indexRestautant].name}
           </Box>
           <Box marginBottom="16px">
-            <p>{states.detalhes.category}</p>
+            <p>{states.restaurantes[indexRestautant].category}</p>
             <Box display="flex" gap="16px">
-              <p>{states.detalhes.deliveryTime} min</p>
-              <p>Frete: R$ {states.detalhes.shipping},00</p>
+              <p>{states.restaurantes[indexRestautant].deliveryTime} min</p>
+              <p>Frete: R$ {states.restaurantes[indexRestautant].shipping},00</p>
             </Box>
-            <p>{states.detalhes.address}</p>
+            <p>{states.restaurantes[indexRestautant].address}</p>
           </Box>
         </Box>
         
@@ -152,12 +159,13 @@ const PaginaDetalhesRestaurante = () => {
                 <span>{categoria}</span>
                 <Box height="1px" width="100%" bg="black" />
 
-                {states.detalhes.products &&
-                  states.detalhes.products
+                {states.restaurantes[indexRestautant].products &&
+                  states.restaurantes[indexRestautant].products
                     .filter((produto) => {
                       return produto.category === categoria;
                     })
                     .map((produto) => {
+
                       return (
                         <CardProduto
                           key={produto.id}
@@ -216,6 +224,7 @@ const PaginaDetalhesRestaurante = () => {
           </ModalContent>
         </Modal>
       </Flex>
+      {BarraNavegacao()}
     </>
   );
 };

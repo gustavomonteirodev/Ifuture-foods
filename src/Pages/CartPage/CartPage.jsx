@@ -7,6 +7,7 @@ import { CartContext } from "../../Contexts/CartContext";
 import { AlertCart } from "../../Components/AlertCart/AlertCart";
 import useProtectedPage from "../../hooks/useProtectedPage";
 
+
 import { BASE_URL } from "../../constants/url";
 
 import useRequestData from "../../hooks/useRequestData";
