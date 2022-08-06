@@ -44,3 +44,12 @@ export const goToLoginPage = (navigate) => {
     navigate("/busca");
   };
   
+
+
+
+
+  // rota para pagina de detalhes do restaurante com os produtos 
+  export const irParaDetalhesRestaurante = (navigate, id) => {
+    navigate(`/restaurante/${id}`);
+  };
+  

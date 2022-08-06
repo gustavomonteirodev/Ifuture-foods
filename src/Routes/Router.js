@@ -12,6 +12,9 @@ import RestaurantSearchPage from "../Pages/RestaurantSearchPage/RestaurantSearch
 import PageHome from "../Pages/PageHome/PageHome";
 
 
+
+import PaginaDetalhesRestaurante from "../Pages/PaginaDetalhesRestaurante/PaginaDetalhesRestaurante";
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -24,6 +27,9 @@ const Router = () => {
         <Route path="/myProfile" element={<MyProfilePage/>}/>
         <Route path="/profileEditPage" element={<ProfileEditPage/>}/>
         <Route path="/busca" element={<RestaurantSearchPage />} />
+
+      {/* rota para pagina de detalhes do restaurante com os produtos  */}
+        <Route path="/restaurante/:id" element={<PaginaDetalhesRestaurante /> }/>
       </Routes>
     </BrowserRouter>
   );

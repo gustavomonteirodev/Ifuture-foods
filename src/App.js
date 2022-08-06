@@ -5,6 +5,8 @@ import { CartProvider } from './providers/CartProvider'
 import GlobalState from "./Global/GlobalState";
 import { TestandoContext } from "./Pages/CartPage/TestandoContext";
 
+
+
 function App() {
 // aqui adicionarei o global Context
 
@@ -17,6 +19,7 @@ function App() {
       <Router>
         <h1>PROJETO LABEFOOD - GRUPO 3</h1>
       </Router>
+      
       {/* </TestandoContext> */}
       </GlobalState>
     </ChakraProvider>);
