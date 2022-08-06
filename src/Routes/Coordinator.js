@@ -14,12 +14,6 @@ export const goToLoginPage = (navigate) => {
     navigate("/");
   };
 
-
-  
-//   export const goToRestaurantDetailPage = (navigate, id) => {
-//     navigate(`/detalhes/${id}`);
-//   };
-  
   export const goToCartPage = (navigate) => {
     navigate("/carrinho");
   };
@@ -37,7 +31,7 @@ export const goToLoginPage = (navigate) => {
 
 
   export const goToHome = (navigate) => {
-    navigate("/feed");
+    navigate("/");
   };
   
   export const goToSearch = (navigate) => {
@@ -51,5 +45,6 @@ export const goToLoginPage = (navigate) => {
   // rota para pagina de detalhes do restaurante com os produtos 
   export const irParaDetalhesRestaurante = (navigate, id) => {
     navigate(`/restaurante/${id}`);
+    window.localStorage.setItem("IdCardDetail", id)
   };
   
