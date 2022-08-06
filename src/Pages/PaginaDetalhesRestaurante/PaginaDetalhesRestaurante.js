@@ -29,22 +29,21 @@ const PaginaDetalhesRestaurante = (props) => {
   const [valor, setValor] = useState(1);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  console.log(carrinho)
+
   const index = localStorage.getItem("IdCardDetail")
-
-  console.log(states)
-
-  const indexRestautant =  index == 10 ? 1 : (index == 1 ? 0 : index) 
-
+  const produto = states && states.detalhes?.restaurant?.products
+  const indexRestautant = index == 10 ? 1 : (index == 1 ? 0 : index)
   const categorias = [];
-  
+
   const pegaCategorias = () => {
-    states.detalhes.products &&
-      states.detalhes.products.map((categoria) => {
+    produto &&
+      produto.map((categoria) => {
         categorias.push(categoria.category);
       });
   };
   pegaCategorias();
- 
+
   const categoriasSemRepetir = [...new Set(categorias)];
 
   const onClickAdicionarParaCarrinho = (produto) => {
@@ -55,7 +54,6 @@ const PaginaDetalhesRestaurante = (props) => {
         item.quantity += valor;
         temNoCarrinho = true;
       }
-      
     }
     if (temNoCarrinho === false) {
       novoCarrinho.push({ ...produto, quantity: valor });
@@ -87,7 +85,7 @@ const PaginaDetalhesRestaurante = (props) => {
       states.carrinho.map((item) => {
         idProdutos.push(item.id);
       });
-  }; 
+  };
   pegaId();
 
   const onChangevalor = (event) => {
@@ -101,12 +99,10 @@ const PaginaDetalhesRestaurante = (props) => {
 
   useEffect(() => {
     requests.pegarDetalhes(pathParams.id);
-  }, []);
+  }, [states.carrinho]);
 
   return (
     <>
-      
-
       <Flex
         direction="column"
         align="center"
@@ -138,7 +134,6 @@ const PaginaDetalhesRestaurante = (props) => {
             <p>{states.restaurantes[indexRestautant].address}</p>
           </Box>
         </Box>
-        
         <Flex
           direction="column"
           align="center"
@@ -159,8 +154,8 @@ const PaginaDetalhesRestaurante = (props) => {
                 <span>{categoria}</span>
                 <Box height="1px" width="100%" bg="black" />
 
-                {states.restaurantes[indexRestautant].products &&
-                  states.restaurantes[indexRestautant].products
+                {produto &&
+                  produto
                     .filter((produto) => {
                       return produto.category === categoria;
                     })

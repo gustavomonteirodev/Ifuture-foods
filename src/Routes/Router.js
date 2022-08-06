@@ -3,16 +3,11 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import LoginPage from '../Pages/Loginpage/LoginPage'
 import SignUpPage from "../Pages/SignupPage/SignUpPage";
 import CartPage from "../Pages/CartPage/CartPage"
-
 import MyProfilePage from "../Pages/MyProfilePage/MyProfilePage";
 import ProfileEditPage  from "../Pages/ProfileEditPage/ProfileEditPage";
 import SignAddressPage  from "../Pages/SignAddressPage/SignAddresPage";
-
 import RestaurantSearchPage from "../Pages/RestaurantSearchPage/RestaurantSearchPage";
 import PageHome from "../Pages/PageHome/PageHome";
-
-
-
 import PaginaDetalhesRestaurante from "../Pages/PaginaDetalhesRestaurante/PaginaDetalhesRestaurante";
 
 const Router = () => {
@@ -27,12 +22,9 @@ const Router = () => {
         <Route path="/myProfile" element={<MyProfilePage/>}/>
         <Route path="/profileEditPage" element={<ProfileEditPage/>}/>
         <Route path="/busca" element={<RestaurantSearchPage />} />
-
-      {/* rota para pagina de detalhes do restaurante com os produtos  */}
         <Route path="/restaurante/:id" element={<PaginaDetalhesRestaurante /> }/>
       </Routes>
     </BrowserRouter>
   );
 };
-
 export default Router;
