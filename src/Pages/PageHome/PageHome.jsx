@@ -6,11 +6,13 @@ import FiltroCategoria from "./FiltroCategoria";
 import { Flex, HStack, Input , Divider, Text} from "@chakra-ui/react";
 import { goToSearch } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const Home = () => {
+  useProtectedPage()
   const navigate = useNavigate()
   
-  const { states, setters, requests } = useContext(GlobalContext);
+  const { requests } = useContext(GlobalContext);
 
   const [categoria, setCategoria] = useState("")
 

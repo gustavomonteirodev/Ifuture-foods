@@ -2,7 +2,6 @@ import { Box, Flex } from "@chakra-ui/react"
 import React from "react"
 
 const CardProduto = (props) => {
-
   return (
     <Flex
       width='100%'
@@ -44,8 +43,6 @@ const CardProduto = (props) => {
                 position='relative'
                 left='1px'
                 bottom='-1px'
-
-
                 borderTopLeftRadius={10}
                 borderBottomLeftRadius={0}
                 borderBottomRightRadius={10}

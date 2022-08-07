@@ -15,10 +15,15 @@ import {
   ModalOverlay,
   Select,
   useDisclosure,
+  Text  
 } from "@chakra-ui/react";
 import BarraNavegacao from "../../Components/SearchBar/SearchBar";
+import { AlertCart } from "../../Components/AlertCart/AlertCart";
+import useProtectedPage from "../../hooks/useProtectedPage";
+
 
 const PaginaDetalhesRestaurante = (props) => {
+  useProtectedPage()
   const pathParams = useParams();
 
   const { states, requests, setters } = useContext(GlobalContext);
@@ -101,6 +106,7 @@ const PaginaDetalhesRestaurante = (props) => {
 
   return (
     <>
+      {/* {AlertCart(priceSum, dadosRestautante.name)} */}
       <Flex
         direction="column"
         align="center"
@@ -117,22 +123,20 @@ const PaginaDetalhesRestaurante = (props) => {
           marginBottom="20px"
           backgroundSize={"cover"}
           backgroundPosition="center"
-          backgroundImage={states.restaurantes[indexRestautant].logoUrl}
-          
-          
+          backgroundImage={states.restaurantes[indexRestautant].logoUrl} 
         />
         <Box width="100%" maxW="350px" color="#262626">
-          <Box fontWeight="semibold" as="h3" color="#262626">
+          <Box fontWeight="semibold" as="h3" color="#ff0000">
             {states.restaurantes[indexRestautant].name}
           </Box>
           <Box marginBottom="16px"
           >
-            <p>{states.restaurantes[indexRestautant].category}</p>
+            <Text color='#6d6d6d' >{states.restaurantes[indexRestautant].category}</Text>
             <Box display="flex" gap="16px">
-              <p>{states.restaurantes[indexRestautant].deliveryTime} min</p>
-              <p>Frete: R$ {states.restaurantes[indexRestautant].shipping},00</p>
+              <Text color='#6d6d6d'>{states.restaurantes[indexRestautant].deliveryTime} - { states.restaurantes[indexRestautant].deliveryTime + Math.round(states.restaurantes[indexRestautant].deliveryTime * 0.30)} min </Text>
+              <Text color='#6d6d6d'>Frete: {states.restaurantes[indexRestautant].shipping.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Text>
             </Box>
-            <p>{states.restaurantes[indexRestautant].address}</p>
+            <Text color='#6d6d6d' >{states.restaurantes[indexRestautant].address}</Text>
           </Box>
         </Box>
         <Flex
@@ -161,7 +165,7 @@ const PaginaDetalhesRestaurante = (props) => {
                     .filter((produto) => {
                       return produto.category === categoria;
                     })
-                    .map((produto) => {
+                    .map((produto, index) => {
 
                       return (
                         <CardProduto
@@ -205,7 +209,6 @@ const PaginaDetalhesRestaurante = (props) => {
                 <option value={7}>7</option>
                 <option value={8}>8</option>
                 <option value={9}>9</option>
-                <option value={10}>10</option>
               </Select>
             </ModalBody>
             <ModalFooter>

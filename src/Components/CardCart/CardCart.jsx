@@ -1,14 +1,15 @@
-import React , { useContext } from "react";
+import React, { useContext } from "react";
 import {
     Button,
     Text,
     HStack,
     Box,
     Image,
+    Flex
 } from '@chakra-ui/react'
 import GlobalContext from "../../Global/GlobalContext";
 
-export const CardCart = ({name, description, price, photoUrl, number, id}) => {
+export const CardCart = ({ name, description, price, photoUrl, number, id }) => {
     const { setters } = useContext(GlobalContext);
     const { setCarrinho } = setters;
 
@@ -17,11 +18,17 @@ export const CardCart = ({name, description, price, photoUrl, number, id}) => {
             let newCart = [...prev]
             return newCart.filter((item) => item.id !== id)
         })
-      };
+    };
 
     return (
         <div>
-            <Box marginBottom={4}>
+            <Box
+                direction="column"
+                align="center"
+                width='100%'
+                padding="16px"
+                marginBottom="50px"
+                fontFamily={"'Roboto', sans-serif"}>
                 <HStack
                     marginTop='2vw'
                     marginLeft='3vw'
@@ -29,10 +36,11 @@ export const CardCart = ({name, description, price, photoUrl, number, id}) => {
                     border='1px solid #b8b8b8'
                     borderRadius='3vw'
                     minHeight='20vw'
-                    minWidth='40vw'
+                    minW='96px'
                     maxWidth='94vw'
                     maxHeight='40vw'
                     boxShadow='2px 2px 2px 1px rgba(0, 0, 0, 0.1)'
+                    
                 >
                     <Image
                         boxSize='39vw'
@@ -42,11 +50,11 @@ export const CardCart = ({name, description, price, photoUrl, number, id}) => {
                         minW={122}
                         src={photoUrl} />
 
-                    <HStack display="flex" flexDir="column" gap="1" >
+                    <Flex direction='column' padding='0 16px' width='100%'>
                         <Text fontSize='md' noOfLines='2' fontWeight={700} color='#E8222E' > {name} </Text>
                         <Text fontSize='sm' fontWeight={400} color='#525252'> {description} </Text>
                         <Text fontSize='md' fontWeight={700} > {price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} </Text>
-                    </HStack >
+                    </Flex >
 
                     <Box display="flex" flexDir="column" gap="17vw" marginInlineStart={8}>
                         <HStack marginLeft={20}>
