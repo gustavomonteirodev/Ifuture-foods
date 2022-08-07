@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useContext } from "react";
 import {
     Button,
     Text,
@@ -6,8 +6,33 @@ import {
     Box,
     Image,
 } from '@chakra-ui/react'
+import GlobalContext from "../../Global/GlobalContext";
 
-export const CardCart = (name, description, price, photoUrl, number) => {
+
+
+export const CardCart = (name, description, price, photoUrl, number, id) => {
+
+    const { states, requests, setters } = useContext(GlobalContext);
+    const { carrinho } = states;
+    const { setCarrinho } = setters;
+
+    const onClickRemoverProduto = (item) => {
+        console.log('ta chegando')
+        if (item.quantity > 1) {
+          const novoCarrinho = [...carrinho];
+          for (let produto of novoCarrinho) {
+            if (produto.id === item.id) {
+              produto.quantity -= 1;
+            }
+          }
+          setCarrinho(novoCarrinho);
+        } else {
+          const novoCarrinho = carrinho.filter((produto) => {
+            return produto.id !== item.id;
+          });
+          setCarrinho(novoCarrinho);
+        }
+      };
 
     return (
         <div>
@@ -50,6 +75,7 @@ export const CardCart = (name, description, price, photoUrl, number) => {
                         </HStack>
                         <HStack >
                             <Button
+                                onClick={() => {onClickRemoverProduto(id)}}
                                 fontSize={11}
                                 borderTopLeftRadius={10}
                                 borderBottomLeftRadius={0}
