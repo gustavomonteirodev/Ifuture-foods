@@ -16,15 +16,13 @@ import {
 } from "../../Routes/Coordinator";
 
 export default function MyProfilePage() {
+
   useProtectedPage();
-
-
   const navigate = useNavigate();
   const getProfile = useRequestData([], `${BASE_URL}/profile`);
   const UserData = getProfile.user && getProfile.user;
   const getHistory = useRequestData([], `${BASE_URL}/orders/history`);
   const History = getHistory.orders && getHistory.orders;
-
   const token = localStorage.getItem("token");
   const [loginLogout, setLoginLogout] = useState(token ? "Logout" : "Login");
 
@@ -58,13 +56,10 @@ export default function MyProfilePage() {
     });
 
   return (
-    // HEADER
-    // HEADER
-    // HEADER
-    <Flex flexDirection={"column"} pb={"50px"}>
-      <Flex align={"center"} m={2} justifyContent={"space-between"}>
+    <Flex   flexDirection={"column"} pb={"50px"}>
+      < Flex align={"center"} m={2} justifyContent={"space-between"}>
         <ChevronLeftIcon
-          ml={2}
+          pl={2}
           w={8}
           h={8}
           onClick={() => goToLastPage(navigate)}
@@ -72,7 +67,7 @@ export default function MyProfilePage() {
 
         <Text fontWeight={750}>Meu Perfil</Text>
         <Button
-        boxShadow="2px 2px 2px 1px rgba(0, 0, 0, 0.1)"
+          boxShadow="2px 2px 2px 1px rgba(0, 0, 0, 0.1)"
           size={'xs'}
           fontWeight={500}
           mr={2}
@@ -80,7 +75,7 @@ export default function MyProfilePage() {
           bgColor={"#ececec"}
           _active={{
             bgColor: "#E8222E",
-            color:' white',
+            color: ' white',
             transform: "scale(0.98)",
           }}
           onClick={buttonLoginLogout}
@@ -97,9 +92,6 @@ export default function MyProfilePage() {
         bgColor="lightgray"
         display="flex"
       />
-      {/* Informações usuario  */}
-      {/* Informações usuario  */}
-      {/* Informações usuario  */}
       <Flex
         m={2}
         p={3}
@@ -155,18 +147,12 @@ export default function MyProfilePage() {
       />
 
       <Flex flexWrap="wrap" justifyContent={"center"}>
-        {CardHistory}
+      {(CardHistory && CardHistory !=0 ) || ((CardHistory && CardHistory == 0 && CardHistory == null )) ?CardHistory:<Text mt="3" ml="3">Você não realizou nenhum pedido</Text>}
       </Flex>
-
-      {/* {(CardHistory && CardHistory !==0 ) || ((CardHistory && CardHistory === 0 && CardHistory === null )) ?CardHistory:<Text mt="3" ml="3">Você não realizou nenhum pedido</Text>} */}
-
-    
-    
-
-    {BarraNavegacao(false,false, true)}
+      {BarraNavegacao(false, false, true)}
     </Flex>
 
- 
+
 
   );
 }

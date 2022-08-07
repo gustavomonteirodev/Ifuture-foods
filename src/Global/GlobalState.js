@@ -30,6 +30,7 @@ const GlobalState = (props) => {
     axios
       .get(`https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants/${id}`, headers)
       .then((res) => {
+        setDetalhes(res.data)
       })
       .catch((err) => { console.log(err.response) } )
   }

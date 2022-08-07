@@ -5,13 +5,12 @@ import { goToHomePage, goToSignAddress } from "../Routes/Coordinator"
 export const login = (body, clear, navigate) => {
     axios.post(`${BASE_URL}/login`, body)
         .then((res) => {
-            localStorage.setItem("token", res.data.token) 
+            localStorage.setItem("token", res.data.token)
             clear()
             goToHomePage(navigate)
         })
         .catch((err) => console.log(err.response.data.message))
 }
-
 export const signUp = (body, clear, navigate) => {
     axios.post(`${BASE_URL}/signUp`, body)
         .then((res) => {
@@ -20,10 +19,8 @@ export const signUp = (body, clear, navigate) => {
             alert("usuário Cadastrado com sucesso!")
             goToSignAddress(navigate);
         })
-        .catch((err)=> alert(err.response.data.message))
+        .catch((err) => alert(err.response.data.message))
 }
-
-
 export const signAddres = (body, clear, navigate) => {
     axios.put(`${BASE_URL}/address`, body, {
         headers: {
@@ -35,38 +32,28 @@ export const signAddres = (body, clear, navigate) => {
             clear()
             goToHomePage(navigate)
         })
-        .catch((err)=> alert(err.response.data.message, ))
+        .catch((err) => alert(err.response.data.message,))
 }
-
-export const UpdateProfile = (body,clear,navigate)=>{
+export const UpdateProfile = (body, clear) => {
     axios.put(`${BASE_URL}/profile`, body, {
         headers: {
             auth: localStorage.getItem("token"),
         },
     })
-        .then((res) => {
-            
+        .then(() => {
             alert("Alteração realizada")
             clear()
-            
         })
-        .catch((err)=> alert(err.response.data.message, ))
+        .catch((err) => alert(err.response.data.message,))
 }
-
-
-export const confirmingPurchase = (body,id,navigate)=>{
+export const confirmingPurchase = (body, id) => {
     axios.post(`${BASE_URL}//fourFoodA/restaurants/${id}/order`, body, {
         headers: {
             auth: localStorage.getItem("token"),
         },
     })
-        .then((res) => {
-            
-        alert("Alteração realizada")
-        // goToHomePage(navigate)
-
-       
-            
+        .then(() => {
+            alert("Alteração realizada")
         })
-        .catch((err)=> alert(err.response.data.message, ))
+        .catch((err) => alert(err.response.data.message,))
 }

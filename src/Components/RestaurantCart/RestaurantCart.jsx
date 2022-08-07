@@ -19,7 +19,7 @@ export const RestaurantCart = (name, address, deliveryTime) => {
                 </HStack>
 
                 <HStack marginLeft={3}>
-                    <Text fontSize='md' fontWeight={400} color='#b8b8b8'> {deliveryTime}</Text>
+                    <Text fontSize='md' fontWeight={400} color='#b8b8b8'> {deliveryTime} - { deliveryTime + Math.round(deliveryTime * 0.30)} min</Text>
                 </HStack>
             </Box>
 
