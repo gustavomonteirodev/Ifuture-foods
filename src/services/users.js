@@ -46,14 +46,10 @@ export const UpdateProfile = (body, clear) => {
         })
         .catch((err) => alert(err.response.data.message,))
 }
-export const confirmingPurchase = (body, id) => {
-    axios.post(`${BASE_URL}//fourFoodA/restaurants/${id}/order`, body, {
+export const confirmingPurchase = async (body, id) => {
+    return axios.post(`${BASE_URL}/restaurants/${id}/order`, body, {
         headers: {
             auth: localStorage.getItem("token"),
         },
     })
-        .then(() => {
-            alert("Alteração realizada")
-        })
-        .catch((err) => alert(err.response.data.message,))
 }

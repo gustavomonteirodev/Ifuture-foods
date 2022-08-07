@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import { goToHomePage } from "../../Routes/Coordinator";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     Button,
@@ -11,36 +10,32 @@ import {
     Radio,
     RadioGroup,
 } from '@chakra-ui/react'
-import { PostHook } from "../../hooks/PostHook";
 import { confirmingPurchase } from "../../services/users";
+import GlobalContext from "../../Global/GlobalContext";
 
-
-export const PayCart = (shipping, totalSun, IdAndQuantity) => {
+export const PayCart = ({ shipping, totalSum }) => {
+    const { setters, states } = useContext(GlobalContext);
+    const { carrinho,  } = states;
+    const { setCarrinho } = setters;
 
     const navigate = useNavigate();
 
     const [value, setValue] = useState('')
 
+    const checkout = () => {
+        const products = carrinho.map(product => ({ id: product.id, quantity: product.quantity }))
 
-    const checkout = (IdAndQuantity) => {
-
-
-    const item =  {
-            "products": [{
-                "id": "CnKdjU6CyKakQDGHzNln",
-                "quantity": 10
-            }, {
-                "quantity": 1,
-                "id": "KJqMl2DxeShkSBevKVre"
-            }],
-            "paymentMethod": {value}
+        const item = {
+            products,
+            "paymentMethod": value
         }
 
-        const url = `/fourFoodA/restaurants/${5}/order`
-
-        confirmingPurchase(item,5)
-
-
+        confirmingPurchase(item, localStorage.getItem("IdCardDetail"))
+            .then(() => {
+                navigate('/')
+                setCarrinho([])
+            })
+            .catch((err) => alert(err.response.data.message))
     }
 
     return (
@@ -49,7 +44,7 @@ export const PayCart = (shipping, totalSun, IdAndQuantity) => {
 
             <HStack marginLeft={2} display="flex" flexDir="row" gap='53vw' marginBottom={5}>
                 <Text fontWeight={600} fontSize='md' > SUBTOTAL  </Text>
-                <Text fontSize='md' fontWeight={700} color='#E8222E'  > {totalSun.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) || 'R$ 0,00'} </Text>
+                <Text fontSize='md' fontWeight={700} color='#E8222E'  > {totalSum.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) || 'R$ 0,00'} </Text>
             </HStack>
 
             <Text marginLeft={2} fontWeight={600} fontSize='md'> Forma de pagamento  </Text>
@@ -60,8 +55,8 @@ export const PayCart = (shipping, totalSun, IdAndQuantity) => {
 
                 <RadioGroup onChange={setValue} value={value}>
                     <Stack>
-                        <Radio  fontSize='14' fontWeight={400} colorScheme='red' borderRadius={0} value='Dinheiro'> Dinheiro </Radio>
-                        <Radio  fontSize='14' fontWeight={400} colorScheme='red' borderRadius={0} value='Cartão de crédito'> Cartão de crédito</Radio>
+                        <Radio fontSize='14' fontWeight={400} colorScheme='red' borderRadius={0} value='money'> Dinheiro </Radio>
+                        <Radio fontSize='14' fontWeight={400} colorScheme='red' borderRadius={0} value='creditcard'> Cartão de crédito</Radio>
                     </Stack>
                 </RadioGroup>
             </Box>

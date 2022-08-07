@@ -29,8 +29,6 @@ const PaginaDetalhesRestaurante = (props) => {
   const [valor, setValor] = useState(1);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  console.log(carrinho)
-
   const index = localStorage.getItem("IdCardDetail")
   const produto = states && states.detalhes?.restaurant?.products
   const indexRestautant = index == 10 ? 1 : (index == 1 ? 0 : index)
@@ -89,7 +87,7 @@ const PaginaDetalhesRestaurante = (props) => {
   pegaId();
 
   const onChangevalor = (event) => {
-    setValor(event.target.value);
+    setValor(Number(event.target.value));
   };
 
   const onAddProduct = (produto) => {
@@ -115,17 +113,20 @@ const PaginaDetalhesRestaurante = (props) => {
           width="100%"
           maxW="350px"
           height="120px"
-          borderRadius="5px 5px 0 0"
+          borderTopRadius='10px 10px'
           marginBottom="20px"
           backgroundSize={"cover"}
           backgroundPosition="center"
           backgroundImage={states.restaurantes[indexRestautant].logoUrl}
+          
+          
         />
         <Box width="100%" maxW="350px" color="#262626">
           <Box fontWeight="semibold" as="h3" color="#262626">
             {states.restaurantes[indexRestautant].name}
           </Box>
-          <Box marginBottom="16px">
+          <Box marginBottom="16px"
+          >
             <p>{states.restaurantes[indexRestautant].category}</p>
             <Box display="flex" gap="16px">
               <p>{states.restaurantes[indexRestautant].deliveryTime} min</p>
@@ -140,6 +141,7 @@ const PaginaDetalhesRestaurante = (props) => {
           width="100%"
           maxW="328px"
           gap="8px"
+          
         >
           {categoriasSemRepetir.map((categoria) => {
             return (
