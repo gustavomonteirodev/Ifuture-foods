@@ -5,12 +5,13 @@ import { BASE_URL } from "../../constants/url";
 import { Box, Flex, HStack, Text, Divider } from "@chakra-ui/react"
 import { Input } from '@chakra-ui/react'
 import SearchBar from "../../Components/SearchBar/SearchBar";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 import { irParaDetalhesRestaurante } from "../../Routes/Coordinator"
 
 
 const RestaurantSearchPage = () => {
-
+  useProtectedPage()
   const navigate = useNavigate()
   const [restaurantes, setRestaurantes] = useState([])
   const [buscaRestaurante, setBuscaRestaurante] = useState("")

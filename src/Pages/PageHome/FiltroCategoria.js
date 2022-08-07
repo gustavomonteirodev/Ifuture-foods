@@ -2,7 +2,6 @@ import React from "react"
 import { Tab, TabList, Tabs } from "@chakra-ui/react"
 
 const FiltroCategoria = (props) => {
-
   return (
     <Tabs variant='line' colorScheme={'red'} padding='15px 0' overflowX={'scroll'}>
       <TabList>

@@ -3,7 +3,6 @@ import { CardCart } from "../../Components/CardCart/CardCart";
 import { PayCart } from "../../Components/PayCart/PayCart";
 import { UserAddressCart } from "../../Components/UserAddressCart/UserAddressCart";
 import { RestaurantCart } from "../../Components/RestaurantCart/RestaurantCart";
-import { AlertCart } from "../../Components/AlertCart/AlertCart";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { BASE_URL } from "../../constants/url";
 import useRequestData from "../../hooks/useRequestData";
@@ -26,9 +25,6 @@ function CartPage() {
 
   return (
     <div>
-      {/* O alert será usado na pagina do Feed quando o pedido for confirmado */}
-      {/* {AlertCart(priceSum, dadosRestautante.name)} */}
-
       {UserAddressCart(Useraddress)}
       {restaurantData && (
         <RestaurantCart
@@ -38,21 +34,23 @@ function CartPage() {
         />
       )}
       <Flex
-        p="1"
-        align="start"
-        flexDirection="column"
-        justifyContent="space-between"
+        direction="column"
+        align="flex-start"
+        width="100%"
+        maxW="328px"
+        gap="8px"
       >
         {carrinho && carrinho.map((_, index) => (
           <CardCart
-            key={index} 
+            key={index}
             name={carrinho[index].name}
             description={carrinho[index].description}
             price={carrinho[index].price}
             photoUrl={carrinho[index].photoUrl}
             number={carrinho[index].quantity}
-            id={carrinho[index].carrinho}
+            id={carrinho[index].id}
           />
+
         ))}
       </Flex>
       {restaurantData && (
