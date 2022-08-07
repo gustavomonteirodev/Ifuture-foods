@@ -21,9 +21,9 @@ const BarraNavegacao = ( iconHome, iconCart, iconAvatar ) => {
       borderTop={"1px"}
       borderColor="lightgray"
       w="full"
-      pos={"fixed"}
-      bottom={0}
-    >
+      position={'fixed'}
+      bottom={'0'}
+      >
       <Flex justify={"center"}>
         <Image
           src={iconHome === true ? homeRed : home }

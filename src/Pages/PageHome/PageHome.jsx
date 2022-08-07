@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <>
-      <HStack justify="center" padding={2}>
+      <HStack justify="center" pt={6}>
           <Text fontSize='md' fontWeight={600} fontFamily='heading' color='#646464'> Feed </Text>
       </HStack>
       <Divider marginTop={2} padding={.3} background='#a3a3a3'></Divider> 
