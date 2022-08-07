@@ -4,7 +4,7 @@ import { Tab, TabList, Tabs } from "@chakra-ui/react"
 const FiltroCategoria = (props) => {
 
   return (
-    <Tabs variant='line' colorScheme={'red'} padding='15px 0' overflowX={'scroll'}>
+    <Tabs variant='line' colorScheme={'red'} padding='15px 0' overflowX={'scroll'} >
       <TabList>
         <Tab onClick={() => props.setCategoria("")}>Todos</Tab>
         <Tab onClick={() => props.setCategoria("Árabe")}>Árabe</Tab>
