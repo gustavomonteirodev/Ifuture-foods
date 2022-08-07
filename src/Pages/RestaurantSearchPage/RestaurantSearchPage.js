@@ -25,10 +25,9 @@ const RestaurantSearchPage = () => {
     axios.get(`${BASE_URL}/restaurants`, headers)
       .then((res) => {
         setRestaurantes(res.data.restaurants);
-        console.log(res.data);
       })
-      .catch((res) => {
-        console.log(res);
+      .catch((err) => {
+        console.log(err);
       })
   }
   useEffect(() => {

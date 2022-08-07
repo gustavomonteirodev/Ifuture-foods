@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { CardCart } from "../../Components/CardCart/CardCart";
 import { PayCart } from "../../Components/PayCart/PayCart";
 import { UserAddressCart } from "../../Components/UserAddressCart/UserAddressCart";
@@ -16,11 +16,8 @@ function CartPage() {
 
   useProtectedPage()
 
-  const { states, requests, setters } = useContext(GlobalContext);
+  const { states } = useContext(GlobalContext);
   const { carrinho } = states;
-  const { setCarrinho } = setters;
-
-  console.log(states && states.detalhes?.restaurant)
 
   const restaurantData = states && states.detalhes?.restaurant
   const getProfile = useRequestData([], `${BASE_URL}/profile`);
@@ -28,28 +25,44 @@ function CartPage() {
   const priceSum = carrinho && carrinho.map(item => item.price).reduce((prev, curr) => prev + curr, 0);
 
   return (
-    <div> 
+    <div>
       {/* O alert será usado na pagina do Feed quando o pedido for confirmado */}
       {/* {AlertCart(priceSum, dadosRestautante.name)} */}
 
       {UserAddressCart(Useraddress)}
-      {RestaurantCart(restaurantData.name, restaurantData.address, restaurantData.deliveryTime)}
+      {restaurantData && (
+        <RestaurantCart
+          name={restaurantData.name}
+          address={restaurantData.address}
+          deliveryTime={restaurantData.deliveryTime}
+        />
+      )}
       <Flex
         p="1"
         align="start"
         flexDirection="column"
         justifyContent="space-between"
       >
-        {carrinho && carrinho.map((item, index) => {
-          return CardCart(carrinho[index].name, carrinho[index].description, carrinho[index].price, carrinho[index].photoUrl,  carrinho[index].quantity,carrinho[index].id )
-        })}
+        {carrinho && carrinho.map((_, index) => (
+          <CardCart
+            key={index} 
+            name={carrinho[index].name}
+            description={carrinho[index].description}
+            price={carrinho[index].price}
+            photoUrl={carrinho[index].photoUrl}
+            number={carrinho[index].quantity}
+            id={carrinho[index].carrinho}
+          />
+        ))}
       </Flex>
-      {PayCart(restaurantData.shipping, priceSum + restaurantData.shipping)}
-      {BarraNavegacao(false,true,false)}
-      </div>
+      {restaurantData && (
+        <PayCart shipping={restaurantData.shipping} totalSum={priceSum + restaurantData.shipping} />
+      )}
+      {BarraNavegacao(false, true, false)}
+    </div>
 
   )
-      }
+}
 
 export default CartPage;
 

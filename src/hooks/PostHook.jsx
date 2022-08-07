@@ -8,23 +8,18 @@ import { useState } from "react"
 
 
 export const PostHook = (url, body) => {
-
-  console.log('chegando no PostHook')
-  
   const [data, setData] = useState([])
 
-    axios
-      .post(
-        `${BASE_URL}${url}`, body, { headers: { Authorization: window.localStorage.getItem("token") } }
-      )
-      .then((response) => {
-        setData(response.data)
-        console.log(response.data)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
+  axios
+    .post(
+      `${BASE_URL}${url}`, body, { headers: { Authorization: window.localStorage.getItem("token") } }
+    )
+    .then((response) => {
+      setData(response.data)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   return data
 }
