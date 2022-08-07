@@ -9,7 +9,7 @@ export const login = (body, clear, navigate) => {
             clear()
             goToHomePage(navigate)
         })
-        .catch((err) => console.log(err.response.data.message))
+        .catch((err) => alert(err.response.data.message))
 }
 export const signUp = (body, clear, navigate) => {
     axios.post(`${BASE_URL}/signUp`, body)

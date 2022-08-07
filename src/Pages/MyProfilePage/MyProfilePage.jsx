@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BASE_URL } from "../../constants/url";
-import CardHistoric from "../../Components/CardHistoric";
+import CardOrder from "../../Components/CardOrder/CardOrder";
 import edit from "../../assets/edit.png";
 import useRequestData from "../../hooks/useRequestData";
 import useProtectedPage from "../../hooks/useProtectedPage";
@@ -39,15 +39,52 @@ export default function MyProfilePage() {
       goToLoginPage(navigate);
     }
   };
+ const convertMonth = (month) => {
+    switch(month){
+        case 1:
+            return "Janeiro"
+        case 2:
+            return "Fevereiro"
+        case 3:
+            return "Março"
+        case 4:
+            return "Abril"
+        case 5:
+            return "Maio"
+        case 6:
+            return "Junho"
+        case 7:
+            return "Julho"
+        case 8:
+            return "Agosto"
+        case 9:
+            return "Setembro"
+        case 10:
+            return "Outubro"
+        case 11:
+            return "Novembro"
+        case 12:
+            return "Dezembro"
+        default:
+            return "Error"
+    }
+}
+
+  const cDate = (dateOfOrder) => {
+    const date = new Date(dateOfOrder)
+    return `${date.getDate()} de ${convertMonth(date.getMonth()+1)} de ${date.getFullYear()}`
+}
 
   const CardHistory =
     History &&
-    History.map((compra, i) => {
+    History.map((order, i) => {
+      const date = cDate(order.createdAt)
       return (
-        <CardHistoric
+        <CardOrder
           key={i}
-          name={compra.restaurantName}
-          price={compra.totalPrice.toLocaleString("pt-br", {
+          name={order.restaurantName}
+          date={date}
+          price={order.totalPrice.toLocaleString("pt-br", {
             style: "currency",
             currency: "BRL",
           })}
@@ -71,12 +108,16 @@ export default function MyProfilePage() {
           size={'xs'}
           fontWeight={500}
           mr={2}
-          color={'#b8b8b8'}
-          bgColor={"#ececec"}
+          color={' white'}
+          bgColor={"#E8222E"}
           _active={{
             bgColor: "#E8222E",
             color: ' white',
             transform: "scale(0.98)",
+          }}
+          _focus={{
+            boxShadow:
+              '0 0 1px 2px rgba(232, 34, 47, 0.75), 0 1px 1px rgba(0, 0, 0, .15)',
           }}
           onClick={buttonLoginLogout}
         >
@@ -112,7 +153,7 @@ export default function MyProfilePage() {
           <Text>{UserData?.email}</Text>
           <Text>{UserData?.cpf}</Text>
         </Flex>
-        <Image src={edit} mt={'5'} w={6} h={6} alt="Botão-Editar" />
+        <Image src={edit} mt={''} w={6} h={6} alt="Botão-Editar" />
       </Flex>
       <Flex
         m={2}

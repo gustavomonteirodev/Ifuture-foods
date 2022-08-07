@@ -1,5 +1,4 @@
 import React from "react";
-// import { goToLastPage } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
 import { Button} from "@chakra-ui/react";
 import { UpdateProfile } from "../../services/users";

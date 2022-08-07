@@ -11,7 +11,7 @@ const useRequestData = (initialData, url) => {
         setData(res.data);
       })
       .catch((error) => {
-        console.log("Erro de requisição GET", error);
+        alert(error.response.data.message);
       });
   }, [url]);
 

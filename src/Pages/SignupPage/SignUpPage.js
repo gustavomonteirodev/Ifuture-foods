@@ -1,5 +1,5 @@
 import React from "react";
-import { goToHomePage } from "../../Routes/Coordinator";
+import { goToLastPage } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
 import { Stack } from '@chakra-ui/react'
 import SignUpForm from "./SignUpForm";
@@ -16,7 +16,7 @@ function SignUpPage() {
     <SignUpContainer>
       <Stack direction='column' spacing={-4} align='center'></Stack>
       <IconPosition>
-      <ChevronLeftIcon w={8} h={8} onClick={() => goToHomePage(navigate)}  />
+      <ChevronLeftIcon w={8} h={8} onClick={() => goToLastPage (navigate)}  />
       </IconPosition>
       <Line></Line>
       <img src={RedLogo} alt='logomarca - ifuture vermelha'/>

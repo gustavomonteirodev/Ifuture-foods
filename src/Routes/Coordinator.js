@@ -18,7 +18,7 @@ export const goToLoginPage = (navigate) => {
     navigate("/carrinho");
   };
   export const goToProfilePage = (navigate) => {
-    navigate("/myProfile");
+    navigate("/profile");
   };
   
   export const goToLastPage = (navigate) => {
@@ -26,7 +26,7 @@ export const goToLoginPage = (navigate) => {
   };
 
   export const goToEditPage = (navigate) =>{
-    navigate("/profileEditPage")
+    navigate("/profile/editPage")
   }
 
 
