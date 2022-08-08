@@ -6,7 +6,7 @@ import carrinhoRed from "../../assets/carrinhoRed.png";
 import avatar from "../../assets/avatar.png";
 import avatarRed from "../../assets/avatarRed.png";
 import { useNavigate } from "react-router-dom";
-import { goToHome , goToCartPage, goToProfilePage} from "../../Routes/Coordinator";
+import { goToFeedPage , goToCartPage, goToProfilePage} from "../../Routes/Coordinator";
 import { useState } from "react";
 
 const BarraNavegacao = ( iconHome, iconCart, iconAvatar ) => {
@@ -27,7 +27,7 @@ const BarraNavegacao = ( iconHome, iconCart, iconAvatar ) => {
       <Flex justify={"center"}>
         <Image
           src={iconHome === true ? homeRed : home }
-          onClick={() => goToHome(navigate)}
+          onClick={() => goToFeedPage(navigate)}
           width="27px"
           height="27px"
         />

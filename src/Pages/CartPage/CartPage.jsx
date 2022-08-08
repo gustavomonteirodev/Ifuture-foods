@@ -8,7 +8,6 @@ import { BASE_URL } from "../../constants/url";
 import useRequestData from "../../hooks/useRequestData";
 import { Flex, Text } from "@chakra-ui/react";
 import GlobalContext from "../../Global/GlobalContext";
-
 import BarraNavegacao from "../../Components/SearchBar/SearchBar";
 
 function CartPage() {
@@ -23,6 +22,8 @@ function CartPage() {
   const priceSum = carrinho && carrinho.map(item => item.price).reduce((prev, curr) => prev + curr, 0);
 
   return (
+    <>
+    {UserAddressCart(Useraddress)}
     <Flex
       direction="column"
       align="center"
@@ -31,7 +32,6 @@ function CartPage() {
       marginBottom="50px"
       fontFamily={"'Roboto', sans-serif"}
     >
-      {UserAddressCart(Useraddress)}
 
       {carrinho && carrinho.length > 0 ?
         <>
@@ -73,7 +73,7 @@ function CartPage() {
       {BarraNavegacao(false, true, false)}
     </Flex>
 
-
+    </>
 
   )
 }
