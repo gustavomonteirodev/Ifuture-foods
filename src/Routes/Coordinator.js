@@ -1,5 +1,5 @@
 export const goToLoginPage = (navigate) => {
-    navigate("/login");
+    navigate("/");
   };
 
   export const goToSignUpPage = (navigate) => {
@@ -9,10 +9,6 @@ export const goToLoginPage = (navigate) => {
   export const goToSignAddress = (navigate) => {
     navigate("/cadastrarendereco")
 }
-
-  export const goToHomePage = (navigate) => {
-    navigate("/");
-  };
 
   export const goToCartPage = (navigate) => {
     navigate("/carrinho");
@@ -29,8 +25,8 @@ export const goToLoginPage = (navigate) => {
     navigate("/profile/editPage")
   }
 
-  export const goToHome = (navigate) => {
-    navigate("/");
+  export const goToFeedPage = (navigate) => {
+    navigate("/feed");
   };
   
   export const goToSearch = (navigate) => {

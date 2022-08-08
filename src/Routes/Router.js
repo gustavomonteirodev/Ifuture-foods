@@ -14,10 +14,10 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index path="/" element={<PageHome />} />
+        <Route index path="/" element={<LoginPage />} />
+        <Route path="/feed" element={<PageHome />} />
         <Route path="/signUp" element={<SignUpPage />} />
         <Route path="/carrinho" element={<CartPage />} />
-        <Route path="/login" element={<LoginPage />} />
         <Route path="/cadastrarendereco" element={<SignAddressPage />} />
         <Route path="/profile" element={<MyProfilePage/>}/>
         <Route path="/profile/editPage" element={<ProfileEditPage/>}/>

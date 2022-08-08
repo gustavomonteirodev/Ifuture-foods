@@ -73,6 +73,3 @@ export const PayCart = ({ shipping, totalSum }) => {
         </>
     )
 }
-
-
-// goToHomePage(navigate)
