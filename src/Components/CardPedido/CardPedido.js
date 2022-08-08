@@ -36,8 +36,8 @@ const CardPedido = () => {
                     }, response.data.order.expiresAt - Date.now())
                 }
             })
-            .catch((error) => {
-                console.log(error)
+            .catch((err) => {
+                console.log(err)
             })
     }
     if(pedidoEmAndamento !== false){

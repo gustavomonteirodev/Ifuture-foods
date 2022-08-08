@@ -15,10 +15,9 @@ import {
   ModalOverlay,
   Select,
   useDisclosure,
-  Text  
+  Text
 } from "@chakra-ui/react";
 import BarraNavegacao from "../../Components/SearchBar/SearchBar";
-import { AlertCart } from "../../Components/AlertCart/AlertCart";
 import useProtectedPage from "../../hooks/useProtectedPage";
 
 
@@ -34,8 +33,9 @@ const PaginaDetalhesRestaurante = (props) => {
   const [valor, setValor] = useState(1);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const index = localStorage.getItem("IdCardDetail")
+  
   const produto = states && states.detalhes?.restaurant?.products
+  const index = localStorage.getItem("IdCardDetail")
   const indexRestautant = index == 10 ? 1 : (index == 1 ? 0 : index)
   const categorias = [];
 
@@ -106,7 +106,6 @@ const PaginaDetalhesRestaurante = (props) => {
 
   return (
     <>
-      {/* {AlertCart(priceSum, dadosRestautante.name)} */}
       <Flex
         direction="column"
         align="center"
@@ -123,7 +122,7 @@ const PaginaDetalhesRestaurante = (props) => {
           marginBottom="20px"
           backgroundSize={"cover"}
           backgroundPosition="center"
-          backgroundImage={states.restaurantes[indexRestautant].logoUrl} 
+          backgroundImage={states.restaurantes[indexRestautant].logoUrl}
         />
         <Box width="100%" maxW="350px" color="#262626">
           <Box fontWeight="semibold" as="h3" color="#ff0000">
@@ -133,7 +132,7 @@ const PaginaDetalhesRestaurante = (props) => {
           >
             <Text color='#6d6d6d' >{states.restaurantes[indexRestautant].category}</Text>
             <Box display="flex" gap="16px">
-              <Text color='#6d6d6d'>{states.restaurantes[indexRestautant].deliveryTime} - { states.restaurantes[indexRestautant].deliveryTime + Math.round(states.restaurantes[indexRestautant].deliveryTime * 0.30)} min </Text>
+              <Text color='#6d6d6d'>{states.restaurantes[indexRestautant].deliveryTime} - {states.restaurantes[indexRestautant].deliveryTime + Math.round(states.restaurantes[indexRestautant].deliveryTime * 0.30)} min </Text>
               <Text color='#6d6d6d'>Frete: {states.restaurantes[indexRestautant].shipping.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Text>
             </Box>
             <Text color='#6d6d6d' >{states.restaurantes[indexRestautant].address}</Text>
@@ -145,7 +144,7 @@ const PaginaDetalhesRestaurante = (props) => {
           width="100%"
           maxW="328px"
           gap="8px"
-          
+
         >
           {categoriasSemRepetir.map((categoria) => {
             return (

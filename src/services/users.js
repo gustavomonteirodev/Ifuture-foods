@@ -53,3 +53,11 @@ export const confirmingPurchase = async (body, id) => {
         },
     })
 }
+
+export const orderInProgress = async () => {
+    return axios.get(`${BASE_URL}/active-order`,{
+        headers: {
+            auth: localStorage.getItem("token"),
+        },
+    })
+}
