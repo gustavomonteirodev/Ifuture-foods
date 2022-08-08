@@ -21,69 +21,77 @@ export const CardCart = ({ name, description, price, photoUrl, number, id }) => 
     };
 
     return (
-        <div>
+        <Flex
+            width='100%'
+            border='1px solid #b8b8b8'
+            borderRadius="10px 10px"
+            bg='#FBFBFB'
+            boxShadow='2px 2px 2px 1px rgba(0, 0, 0, 0.1)'
+        >
             <Box
-                direction="column"
-                align="center"
-                width='100%'
-                padding="16px"
-                marginBottom="50px"
-                fontFamily={"'Roboto', sans-serif"}>
-                <HStack
-                    marginTop='2vw'
-                    marginLeft='3vw'
-                    bg='#FBFBFB'
-                    border='1px solid #b8b8b8'
-                    borderRadius='3vw'
-                    minHeight='20vw'
-                    minW='96px'
-                    maxWidth='94vw'
-                    maxHeight='40vw'
-                    boxShadow='2px 2px 2px 1px rgba(0, 0, 0, 0.1)'
-                    
-                >
-                    <Image
-                        boxSize='39vw'
-                        objectFit='cover'
-                        borderLeftRadius={10}
-                        maxW={122}
-                        minW={122}
-                        src={photoUrl} />
-
-                    <Flex direction='column' padding='0 16px' width='100%'>
-                        <Text fontSize='md' noOfLines='2' fontWeight={700} color='#E8222E' > {name} </Text>
-                        <Text fontSize='sm' fontWeight={400} color='#525252'> {description} </Text>
-                        <Text fontSize='md' fontWeight={700} > {price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} </Text>
-                    </Flex >
-
-                    <Box display="flex" flexDir="column" gap="17vw" marginInlineStart={8}>
-                        <HStack marginLeft={20}>
-                            <Text
-                                padding='1.5vw 3.3vw 1.5vw 3.3vw'
-                                borderTopRightRadius={8}
-                                borderBottomLeftRadius={8}
-                                background='#E8222E'
-                                color='#fff'
-                            > {number || 0}  </Text>
-                        </HStack>
-                        <HStack >
-                            <Button
-                                onClick={() => onClickRemoverProduto(id)}
-                                fontSize={11}
-                                borderTopLeftRadius={10}
-                                borderBottomLeftRadius={0}
-                                borderBottomRightRadius={10}
-                                borderTopRightRadius={0}
-                                w='30vw'
-                                marginTop={3}
-                                background='#E8222E'
-                                _hover={{ bg: '#97030d' }}
-                                color='#fff'> remover </Button>
-                        </HStack>
+                minW='96px'
+                borderRadius='8px 0 0 8px'
+                backgroundSize={'cover'}
+                backgroundPosition='center'
+                backgroundImage={photoUrl}
+            />
+            <Flex direction='column' maxWidth='232px' grow='1'>   
+                <Box display='flex' justifyContent='flex-end' width='100%'>
+                    <Box
+                        as='button'
+                        width='40px'
+                        height='40px'
+                        fontSize='12px'
+                        position='relative'
+                        left='1px'
+                        cursor='auto'
+                  
+                        borderTopRightRadius={8}
+                        borderBottomLeftRadius={8}
+                        background='#E8222E'
+            
+                        color='#fff'> {number || 0}
                     </Box>
-                </HStack>
-            </Box>
-        </div>
+                </Box>
+
+                <Flex direction='column' padding='0 16px' width='100%'>
+                    <Box fontWeight='semibold' as='h3' color='#ff0000' marginTop='30px' marginBottom='8px'>
+                        {name}
+                    </Box>
+                    <Box fontSize='12px' color='#6d6d6d' height='30px' marginBottom='4px' as='span'>
+                        {description}
+                    </Box>
+                    <Box fontWeight='semibold' as='h3'>
+                        {price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                    </Box>
+                </Flex>
+
+                <Box display='flex' justifyContent='flex-end' width='100%'>
+                    <Box
+                        onClick={() => onClickRemoverProduto(id)}
+                        as='button'
+                        width='90px'
+                        height='30px'
+                        borderRadius='8px 0 8px 0'
+                        fontSize='12px'
+                        position='relative'
+                        left='1px'
+                        bottom='-1px'
+                        borderTopLeftRadius={10}
+                        borderBottomLeftRadius={0}
+                        borderBottomRightRadius={10}
+                        borderTopRightRadius={0}
+                        marginTop={3}
+                        background='#E8222E'
+                        _hover={{ bg: '#97030d' }}
+                        color='#fff'> remover
+                    </Box>
+                </Box>
+
+
+            </Flex>
+        </Flex>
+
     )
 
 }
