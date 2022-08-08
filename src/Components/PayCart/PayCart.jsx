@@ -32,7 +32,7 @@ export const PayCart = ({ shipping, totalSum }) => {
 
         confirmingPurchase(item, localStorage.getItem("IdCardDetail"))
             .then(() => {
-                navigate('/')
+                navigate('/feed')
                 setCarrinho([])
             })
             .catch((err) => alert(err.response.data.message))
