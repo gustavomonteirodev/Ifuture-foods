@@ -7,8 +7,8 @@
 </h3>
 
 ## 📲 User demo [Link Surge](https://fabulous-time.surge.sh/)
-- Login: lucas12@gmail.com
-- Senha: login123
+- Login: IfutureTeste@gmail.com
+- Senha: 123456
 
 ## ⚛️ Tecnologias utilizadas 
 - React Js
@@ -25,10 +25,22 @@
 - React Icons (Hide/show eyes) -> npm install react-icons --save
 - Chakra Alert -> npm i @chakra-ui/alert
 
-
 ## 📷 Imagens 
 
-## 🧑‍💻 Desenvolvedores  
+<div align="center"> 
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474665-2d9e55ab-16fa-411f-bada-c6040b987e8d.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474662-1ee41de6-d27e-4f53-b617-169c0a8bec50.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474654-258f95f2-dbf7-4dcd-8e80-32221876b79c.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474647-31ef2706-c3dc-4404-8dd5-e7d0ed6a0aae.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474639-a68b6ba9-bf49-448d-ac76-9d0556075af6.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474633-1d338c8b-f915-45c9-8a00-f707ec2a9527.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474615-fba3942c-64c6-4ae3-b128-f2b54d46afd0.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474571-aab95d69-3705-49ca-beae-714a19eb872b.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474604-0a1ab991-8e7e-4ce6-b338-09de626cb7ee.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474597-8e340ccd-9497-4ca0-a069-c29e9acc937b.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474587-f216a148-5507-498a-b92f-49d8b8c31633.png'></img>
+  <img width='150px' src='https://user-images.githubusercontent.com/60453269/183474579-ebf9d0a9-2b5d-423b-8dbe-9cb074a21258.png'></img>
+</div> 
 
 ## 👨‍💻 Funcionalidades do Projeto
 ### 🔒 Fluxo de Login/Cadastro
@@ -63,3 +75,13 @@
 - [x] O usuário deve ser capaz de editar seus dados pessoais e endereço
 - [x] Ao editar as informações, caso insira alguma informação incorreta ou deixe de inserir alguma informação obrigatória, o usuário deve receber uma mensagem de erro clara
 - [x] O usuário deve ser capaz de visualizar o seu histórico de pedidos concluídos (após o tempo de entrega do estabelecimento, o seu pedido aparece nessa lista?)
+
+## 🧑‍💻 Desenvolvedores  
+
+<div align="center"> 
+
+
+| [<img src="https://user-images.githubusercontent.com/60453269/183482748-4566fc54-015c-47c8-a8c9-cc60331f9a83.jpg" width=150><br><sub> Maycon Coutinho </sub>](https://www.linkedin.com/in/maycon-coutinho/) |  [<img src="https://user-images.githubusercontent.com/60453269/183479398-53c478c5-1f28-498a-8baf-50f121e45bdd.jpg" width=150><br><sub>Gideony Ewerton </sub>](https://www.linkedin.com/in/gideonyewerton/) |  [<img src="https://user-images.githubusercontent.com/60453269/183479384-f70b0ae8-6591-46a4-a08d-8b6c6fff033e.jpg" width=150><br><sub> Aline Chagas </sub>](https://www.linkedin.com/in/aline-gon%C3%A7alves-fontes-chagas-384a2b185/) | [<img src="https://user-images.githubusercontent.com/60453269/183479457-5ea887e7-8a3f-47b9-94ba-955c5e2871c8.jpg" width=150><br><sub> João Victor </sub>](https://www.linkedin.com/in/joaovictoy/) | [<img src="https://user-images.githubusercontent.com/60453269/183482401-f2734146-1eb6-4f49-9788-144dae668db4.png" width=150><br><sub> Gustavo Monteiro </sub>](https://www.linkedin.com/in/gustavomonteirodev/) |
+|---|---|---|---|---|
+
+</div> 
